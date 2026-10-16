@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ssya — Player One Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6efd9;--panel:#fffaf0;--ink:#3b2f2f;--muted:#7a6a5a;--accent:#4f9d69;--accent2:#e07a5f;--line:#3b2f2f;--xp:#f2b84b;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1b2238;--panel:#262f4d;--ink:#f1ead6;--muted:#aab1cc;--accent:#7fd1a0;--accent2:#ff9b85;--line:#f1ead6;--xp:#f2b84b}}
+:root[data-theme="dark"]{--bg:#1b2238;--panel:#262f4d;--ink:#f1ead6;--muted:#aab1cc;--accent:#7fd1a0;--accent2:#ff9b85;--line:#f1ead6;--xp:#f2b84b}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Nunito,system-ui,sans-serif;line-height:1.6;
+background-image:radial-gradient(var(--muted) 1px,transparent 1px);background-size:24px 24px;background-position:0 0}
+h1,h2,h3,.px{font-family:'Press Start 2P',ui-monospace,monospace;line-height:1.5}
+h1{font-size:clamp(1.3rem,5vw,2.4rem);margin:.4rem 0}
+h2{font-size:clamp(.9rem,3vw,1.2rem);margin:0 0 1rem;color:var(--accent2)}
+h3{font-size:.75rem;margin:.2rem 0 .5rem}
+.wrap{max-width:900px;margin:0 auto;padding:0 18px 60px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;gap:6px;flex-wrap:wrap;justify-content:center;padding:10px;background:var(--panel);border-bottom:4px solid var(--line)}
+nav a,button{font-family:'Press Start 2P',monospace;font-size:.55rem;color:var(--ink);text-decoration:none;padding:8px 10px;border:3px solid var(--line);background:var(--bg);cursor:pointer}
+nav a:hover,button:hover{background:var(--accent);color:#fff}
+.box{background:var(--panel);border:4px solid var(--line);box-shadow:6px 6px 0 var(--line);padding:20px;margin:28px 0}
+.hero{text-align:center;padding:48px 10px 10px}
+.blink{animation:b 1.1s steps(2) infinite;color:var(--accent2);font-size:.7rem}
+@keyframes b{50%{opacity:0}}
+.tag{display:inline-block;font-size:.8rem;border:2px solid var(--line);padding:2px 10px;margin:3px;background:var(--bg)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{border:3px solid var(--line);padding:14px;background:var(--bg)}
+.card p{margin:.3rem 0;font-size:.92rem}
+.skill{margin:12px 0}
+.skill span{font-size:.9rem;display:flex;justify-content:space-between}
+.bar{height:16px;border:3px solid var(--line);background:var(--bg);margin-top:4px}
+.bar i{display:block;height:100%;width:0;background:var(--xp);transition:width 1.2s steps(14)}
+.quest{border-left:6px solid var(--accent);padding-left:14px;margin:16px 0}
+.quest small{color:var(--muted)}
+.fav{font-size:2rem}
+.fav-row{display:flex;flex-wrap:wrap;gap:10px}
+.fav-row .card{flex:1 1 150px;text-align:center}
+.top{border-color:var(--accent2)}
+footer{text-align:center;color:var(--muted);font-size:.8rem}
+@media (prefers-reduced-motion:reduce){.blink{animation:none}.bar i{transition:none}}
+.hero{display:grid;grid-template-columns:minmax(0,260px) 1fr;gap:28px;align-items:center;text-align:left;padding:40px 0 10px}
+@media (max-width:640px){.hero{grid-template-columns:1fr;text-align:center}}
+.slot{margin:0;border:4px solid var(--line);background:var(--panel);box-shadow:6px 6px 0 var(--line);padding:14px;text-align:center}
+.slot svg,.slot img{width:100%;height:auto;display:block}
+.slot figcaption{font-size:.75rem;color:var(--muted);margin-top:8px}
+.ctl .body{fill:var(--accent);stroke:var(--line);stroke-width:5}
+.ctl .dp{fill:var(--ink)}
+.ctl .btn{stroke:var(--line);stroke-width:3;cursor:pointer}
+.ctl .btn:active{transform:scale(.8);transform-box:fill-box;transform-origin:center}
+.b1{fill:var(--xp)}.b2{fill:var(--accent2)}.b3{fill:#6aa5e0}.b4{fill:#fff}
+#hud{font-family:'Press Start 2P',monospace;font-size:.55rem;align-self:center;color:var(--accent2)}
+.gallery{position:relative;margin:10px 0}
+.track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;border:3px solid var(--line);background:var(--bg)}
+.track figure{flex:0 0 100%;margin:0;scroll-snap-align:center}
+.track img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;cursor:zoom-in}
+.track figcaption{font-size:.75rem;color:var(--muted);padding:4px 8px}
+.gnav{position:absolute;top:calc(50% - 22px);padding:8px 6px}
+.gprev{left:6px}.gnext{right:6px}
+#lb{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.88);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:calc(16px + env(safe-area-inset-top,0px)) 16px calc(16px + env(safe-area-inset-bottom,0px))}
+#lb[hidden]{display:none}
+#lb img{max-width:100%;max-height:68vh;border:4px solid #fff;background:#fff}
+#lb p{color:#fff;margin:0;font-size:.85rem;text-align:center}
+</style>
+</head>
+<body>
+<nav>
+<a href="#about">PROFILE</a><a href="#skills">SKILLS</a><a href="#quests">QUESTS</a><a href="#inventory">INVENTORY</a><a href="#contact">CONTACT</a>
+<span id="hud">LV 1 · XP 0</span>
+<button id="theme" aria-label="Toggle day and night">DAY/NIGHT</button>
+</nav>
+<div class="wrap">
+
+<header class="hero">
+<figure class="slot" id="avatar">
+<svg class="ctl" viewBox="0 0 200 130" role="img" aria-label="Pixel game controller">
+<rect class="body" x="10" y="40" width="45" height="72" rx="18"/><rect class="body" x="145" y="40" width="45" height="72" rx="18"/><rect class="body" x="25" y="22" width="150" height="76" rx="26"/>
+<rect class="dp" x="44" y="54" width="36" height="12"/><rect class="dp" x="56" y="42" width="12" height="36"/>
+<rect class="dp" x="88" y="72" width="24" height="8"/>
+<circle class="btn b1" cx="140" cy="45" r="8"/><circle class="btn b2" cx="156" cy="60" r="8"/><circle class="btn b3" cx="124" cy="60" r="8"/><circle class="btn b4" cx="140" cy="75" r="8"/>
+</svg>
+<figcaption>🎮 Tap the buttons to earn XP<br>📌 PLACEHOLDER: replace with your photo or 2D art</figcaption>
+</figure>
+<div>
+<p class="blink px">▶ PLAYER ONE READY</p>
+<h1>Hi, I'm Ssya</h1>
+<p class="px" style="font-size:.7rem;color:var(--muted)">Multimedia Computing · Game Developer in the making</p>
+<p>Fresh graduate (B.Comp.Sci, Multimedia Computing, UNIMAS) who builds cozy, story-driven games and loves the quiet magic of a good one.</p>
+<p><a class="tag" href="#quests">View my quests</a><a class="tag" href="#contact">Hire this player</a></p>
+</div>
+</header>
+
+<section class="box" id="about">
+<h2>★ CHARACTER PROFILE</h2>
+<div class="grid">
+<div class="card"><h3>CLASS</h3><p>Multimedia Computing grad, game dev &amp; narrative builder</p></div>
+<div class="card"><h3>HOME GUILD</h3><p>FCSIT, UNIMAS</p></div>
+<div class="card"><h3>CURRENT QUEST</h3><p>8-month protégé programme at CAAM KLATCC, while seeking a games-industry placement</p></div>
+<div class="card"><h3>PLAYSTYLE</h3><p>Calm, detail-loving, happy to sink 5+ hours into one great world</p></div>
+</div>
+</section>
+
+<section class="box" id="skills">
+<h2>★ SKILL TREE</h2>
+<div class="grid">
+<div class="card"><h3>🎮 GAME DEVELOPMENT</h3><span class="tag">Unity 6</span><span class="tag">C#</span><span class="tag">Narrative design</span><span class="tag">Dialogue scripting</span><span class="tag">Character skill trees</span><span class="tag">Quiz &amp; leaderboard systems</span><span class="tag">SUS usability evaluation</span></div>
+<div class="card"><h3>🛠️ DEVELOPER TOOLS</h3><span class="tag">Unity</span><span class="tag">Java</span><span class="tag">DreamLo</span><span class="tag">SVG</span></div>
+<div class="card"><h3>📊 DATA &amp; SECURITY</h3><span class="tag">Data visualization</span><span class="tag">Chart critique</span><span class="tag">Distributed systems</span><span class="tag">SHA-256 hashing</span><span class="tag">Access control models</span></div>
+<div class="card"><h3>💬 SOFT SKILLS</h3><span class="tag">Technical writing</span><span class="tag">Bilingual (English &amp; Malay)</span><span class="tag">Presenting</span><span class="tag">Teamwork</span><span class="tag">Troubleshooting</span><span class="tag">Self-directed</span></div>
+</div>
+</section>
+
+<section class="box" id="quests">
+<h2>★ QUEST LOG: PROJECTS</h2>
+<h3>🎮 GAME PROJECTS</h3>
+
+<div class="card top">
+<h3>⭐ MAIN QUEST: LUCIA</h3>
+<div class="gallery" data-project="lucia"></div>
+<p><b>2D narrative RPG built in Unity 6</b> (final year project, formerly DreamWalker). A dreamwalking story told through character, dialogue and choices.</p>
+<p>Built: narrative sequences, character skill sets (including a full skill tree), dialogue scripts, a quiz widget and a DreamLo-powered leaderboard.</p>
+<p>Presented to my supervisor, backed by a full UNIMAS thesis and IEEE-formatted papers.</p>
+<p><span class="tag">Unity 6</span><span class="tag">C#</span><span class="tag">Narrative design</span><span class="tag">SUS evaluation</span></p>
+</div>
+
+
+
+
+<h3 style="margin-top:28px">💻 OTHER PROJECTS (SAMPLE DATA)</h3>
+<p><small style="color:var(--muted)">📌 Placeholder projects. Replace the titles, descriptions and pictures with your own.</small></p>
+<div class="quest"><h3>Sample Project One</h3><div class="gallery" data-project="p1"></div><p>Short description of what this project is, what you built, and what your role was. (Dummy text, replace me.)</p><small>Tool A · Tool B · Teamwork</small></div>
+<div class="quest"><h3>Sample Project Two</h3><div class="gallery" data-project="p2"></div><p>Another placeholder: describe the problem, your solution and the result. (Dummy text, replace me.)</p><small>Language · Framework · Solo project</small></div>
+</section>
+
+<section class="box" id="inventory">
+<h2>★ INVENTORY: FAVOURITE GAMES</h2>
+<div class="fav-row">
+<div class="card top"><div class="fav">🌊</div><h3>Coral Island</h3><p>Top pick</p></div>
+<div class="card top"><div class="fav">🌾</div><h3>Stardew Valley</h3><p>Top pick</p></div>
+<div class="card"><div class="fav">⛏️</div><h3>Minecraft</h3></div>
+<div class="card"><div class="fav">🌸</div><h3>Fields of Mistria</h3></div>
+<div class="card"><div class="fav">🛒</div><h3>Supermarket Simulator</h3></div>
+<div class="card"><div class="fav">🏰</div><h3>Going Medieval</h3></div>
+</div>
+<p>I'm drawn to calm, cosy worlds with satisfying loops. That's the feeling I want to design for.</p>
+</section>
+
+<section class="box" id="journey">
+<h2>★ ACHIEVEMENTS UNLOCKED</h2>
+<div class="quest"><h3>Bachelor of Computer Science</h3><small>Multimedia Computing, UNIMAS</small></div>
+<div class="quest"><h3>Industry Internship</h3><small>System Consultancy Services (SCS)</small></div>
+<div class="quest"><h3>Final Year Project Completed</h3><small>LUCIA thesis and presentation to my supervisor</small></div>
+<div class="quest"><h3>Protégé Programme</h3><small>CAAM KLATCC, understanding how aircraft fly designated routes under aviation rules</small></div>
+</section>
+
+<section class="box" id="contact">
+<h2>★ JOIN MY PARTY</h2>
+<p>Looking for a games-industry internship or junior role. Let's team up!</p>
+<p>
+<span class="tag">📧 your-email@example.com</span>
+<span class="tag">💼 linkedin.com/in/your-name</span>
+<span class="tag">🎮 itch.io/your-profile</span>
+</p>
+<small style="color:var(--muted)">Replace the placeholders above with your real links.</small>
+</section>
+
+<footer class="px" style="font-size:.55rem">© 2026 SSYA · PRESS START TO CONTINUE ▶</footer>
+</div>
+<script>
+document.querySelectorAll('.bar i').forEach(function(b){
+var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){b.style.width=b.dataset.w+'%';io.disconnect()}})});io.observe(b)});
+document.getElementById('theme').onclick=function(){
+var r=document.documentElement,dark=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;
+r.dataset.theme=dark?'light':'dark'};
+var PROFILE_IMG=''; // put your picture here (data URI) to replace the controller
+var GALLERY={
+lucia:[{src:'',cap:'Gameplay screenshot'},{src:'',cap:'Character art or dialogue scene'},{src:'',cap:'Menu or leaderboard screen'}],
+p1:[{src:'',cap:'Project 1 screenshot'},{src:'',cap:'Project 1 result'}],
+p2:[{src:'',cap:'Project 2 screenshot'},{src:'',cap:'Project 2 result'}]
+};
+function ph(t,n){var s='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360"><rect width="640" height="360" fill="#e8dcc0"/><rect x="12" y="12" width="616" height="336" fill="none" stroke="#3b2f2f" stroke-width="6" stroke-dasharray="14 8"/><text x="320" y="160" text-anchor="middle" font-family="monospace" font-size="28" fill="#3b2f2f">PICTURE '+n+' (PLACEHOLDER)</text><text x="320" y="205" text-anchor="middle" font-family="monospace" font-size="20" fill="#7a6a5a">'+t+'</text><text x="320" y="245" text-anchor="middle" font-family="monospace" font-size="16" fill="#7a6a5a">Add your own image here later</text></svg>';return 'data:image/svg+xml,'+encodeURIComponent(s)}
+var xp=0;
+function gain(n){xp+=n;document.getElementById('hud').textContent='LV '+(Math.floor(xp/100)+1)+' · XP '+xp}
+document.querySelectorAll('.btn').forEach(function(b){b.onclick=function(){gain(10)}});
+var seen={};
+var so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!seen[e.target.id]){seen[e.target.id]=1;gain(25);so.unobserve(e.target)}})},{threshold:.4});
+document.querySelectorAll('section.box').forEach(function(s){so.observe(s)});
+if(PROFILE_IMG){document.getElementById('avatar').innerHTML='<img src="'+PROFILE_IMG+'" alt="Ssya">'}
+var lb=document.createElement('div');lb.id='lb';lb.hidden=true;
+lb.innerHTML='<button id="lbx">✕ CLOSE</button><img id="lbi" alt=""><p id="lbc"></p><div><button id="lbp">◀</button> <button id="lbn">▶</button></div>';
+document.body.appendChild(lb);
+var cur=[],ci=0;
+function show(){var it=cur[ci];document.getElementById('lbi').src=it.src||ph(it.cap,ci+1);document.getElementById('lbc').textContent=(ci+1)+'/'+cur.length+' · '+it.cap}
+function openLb(l,i){cur=l;ci=i;show();lb.hidden=false}
+function step(d){ci=(ci+d+cur.length)%cur.length;show()}
+document.getElementById('lbp').onclick=function(){step(-1)};
+document.getElementById('lbn').onclick=function(){step(1)};
+document.getElementById('lbx').onclick=function(){lb.hidden=true};
+lb.onclick=function(e){if(e.target===lb)lb.hidden=true};
+document.onkeydown=function(e){if(lb.hidden)return;if(e.key==='Escape')lb.hidden=true;if(e.key==='ArrowLeft')step(-1);if(e.key==='ArrowRight')step(1)};
+document.querySelectorAll('.gallery').forEach(function(g){
+var list=GALLERY[g.dataset.project]||[];var tr=document.createElement('div');tr.className='track';
+list.forEach(function(it,i){var f=document.createElement('figure'),im=new Image();im.src=it.src||ph(it.cap,i+1);im.alt=it.cap;im.onclick=function(){openLb(list,i)};var c=document.createElement('figcaption');c.textContent=(i+1)+'/'+list.length+' · '+it.cap+' (tap to enlarge)';f.appendChild(im);f.appendChild(c);tr.appendChild(f)});
+g.appendChild(tr);
+['prev','next'].forEach(function(d){var b=document.createElement('button');b.className='gnav g'+d;b.textContent=d==='prev'?'◀':'▶';b.setAttribute('aria-label',d);b.onclick=function(){tr.scrollBy({left:(d==='prev'?-1:1)*tr.clientWidth,behavior:'smooth'})};g.appendChild(b)})});
+</script>
+</body>
+</html>
