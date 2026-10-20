@@ -68,6 +68,18 @@ footer{text-align:center;color:var(--muted);font-size:.8rem}
 .pfp{width:96px;height:96px;flex:none;border:4px solid var(--line);background:var(--bg);box-shadow:4px 4px 0 var(--line);overflow:hidden}
 .pfp svg,.pfp img{width:100%;height:100%;object-fit:cover;display:block}
 .pf{fill:var(--muted)}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 18px}
+.chip.on{background:var(--accent);color:#fff}
+.chip span{opacity:.7;margin-left:4px}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
+.pcard{border:3px solid var(--line);background:var(--bg);display:flex;flex-direction:column;min-width:0}
+.pcard[hidden]{display:none}
+.pcard .gallery{margin:0}
+.pcard .track{border:0;border-bottom:3px solid var(--line)}
+.pbody{padding:14px;flex:1}
+.pbody p{font-size:.9rem;margin:.4rem 0}
+.badge{display:inline-block;font-size:.7rem;font-weight:700;border:2px solid var(--line);padding:1px 8px;background:var(--panel);color:var(--accent2)}
+.pfoot{display:flex;justify-content:space-between;gap:8px;padding:10px 14px;border-top:2px solid var(--line);font-size:.8rem;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -128,24 +140,32 @@ footer{text-align:center;color:var(--muted);font-size:.8rem}
 
 <section class="box" id="quests">
 <h2>★ QUEST LOG: PROJECTS</h2>
-<h3>🎮 GAME PROJECTS</h3>
-
-<div class="card top">
-<h3>⭐ MAIN QUEST: LUCIA</h3>
+<p>Pick a category, then tap any picture to enlarge it.</p>
+<div class="filters"><button class="chip on" data-f="all">All <span>3</span></button><button class="chip" data-f="game">Game <span>1</span></button><button class="chip" data-f="other">Other <span>2</span></button></div>
+<div class="pgrid">
+<article class="pcard top" data-cat="game">
 <div class="gallery" data-project="lucia"></div>
-<p><b>2D narrative RPG built in Unity 6</b> (final year project, formerly DreamWalker). A dreamwalking story told through character, dialogue and choices.</p>
-<p>Built: narrative sequences, character skill sets (including a full skill tree), dialogue scripts, a quiz widget and a DreamLo-powered leaderboard.</p>
-<p>Presented to my supervisor, backed by a full UNIMAS thesis and IEEE-formatted papers.</p>
-<p><span class="tag">Unity 6</span><span class="tag">C#</span><span class="tag">Narrative design</span><span class="tag">SUS evaluation</span></p>
+<div class="pbody"><span class="badge">Final Year Project</span><h3>LUCIA</h3>
+<p>2D narrative RPG built in Unity 6 (formerly DreamWalker). A dreamwalking story told through character, dialogue and choices.</p>
+<p>Built: narrative sequences, a character skill tree, dialogue scripts, a quiz widget and a DreamLo-powered leaderboard. Backed by a UNIMAS thesis and IEEE-formatted papers, presented to my supervisor.</p>
+<span class="tag">Unity 6</span><span class="tag">C#</span><span class="tag">Narrative</span></div>
+<div class="pfoot"><span>📌 Add platform</span><span>📌 Add links</span></div>
+</article>
+<article class="pcard" data-cat="other">
+<div class="gallery" data-project="p1"></div>
+<div class="pbody"><span class="badge">Sample</span><h3>Sample Project One</h3>
+<p>Short description of what this project is, what you built, and what your role was. (Dummy text, replace me.)</p>
+<span class="tag">Tool A</span><span class="tag">Tool B</span><span class="tag">Teamwork</span></div>
+<div class="pfoot"><span>Web</span><span>📌 Add links</span></div>
+</article>
+<article class="pcard" data-cat="other">
+<div class="gallery" data-project="p2"></div>
+<div class="pbody"><span class="badge">Sample</span><h3>Sample Project Two</h3>
+<p>Another placeholder: describe the problem, your solution and the result. (Dummy text, replace me.)</p>
+<span class="tag">Language</span><span class="tag">Framework</span><span class="tag">Solo</span></div>
+<div class="pfoot"><span>Desktop</span><span>📌 Add links</span></div>
+</article>
 </div>
-
-
-
-
-<h3 style="margin-top:28px">💻 OTHER PROJECTS (SAMPLE DATA)</h3>
-<p><small style="color:var(--muted)">📌 Placeholder projects. Replace the titles, descriptions and pictures with your own.</small></p>
-<div class="quest"><h3>Sample Project One</h3><div class="gallery" data-project="p1"></div><p>Short description of what this project is, what you built, and what your role was. (Dummy text, replace me.)</p><small>Tool A · Tool B · Teamwork</small></div>
-<div class="quest"><h3>Sample Project Two</h3><div class="gallery" data-project="p2"></div><p>Another placeholder: describe the problem, your solution and the result. (Dummy text, replace me.)</p><small>Language · Framework · Solo project</small></div>
 </section>
 
 <section class="box" id="experience">
@@ -225,6 +245,7 @@ var list=GALLERY[g.dataset.project]||[];var tr=document.createElement('div');tr.
 list.forEach(function(it,i){var f=document.createElement('figure'),im=new Image();im.onerror=function(){im.onerror=null;im.src=ph(it.cap,i+1)};im.src=it.src||ph(it.cap,i+1);im.alt=it.cap;im.onclick=function(){openLb(list,i)};var c=document.createElement('figcaption');c.textContent=(i+1)+'/'+list.length+' · '+it.cap+' (tap to enlarge)';f.appendChild(im);f.appendChild(c);tr.appendChild(f)});
 g.appendChild(tr);
 ['prev','next'].forEach(function(d){var b=document.createElement('button');b.className='gnav g'+d;b.textContent=d==='prev'?'◀':'▶';b.setAttribute('aria-label',d);b.onclick=function(){tr.scrollBy({left:(d==='prev'?-1:1)*tr.clientWidth,behavior:'smooth'})};g.appendChild(b)})});
+document.querySelectorAll('.chip').forEach(function(c){c.onclick=function(){document.querySelectorAll('.chip').forEach(function(x){x.classList.remove('on')});c.classList.add('on');document.querySelectorAll('.pcard').forEach(function(p){p.hidden=!(c.dataset.f==='all'||p.dataset.cat===c.dataset.f)})}});
 </script>
 </body>
 </html>
