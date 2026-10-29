@@ -129,14 +129,91 @@ body{background-image:linear-gradient(160deg,var(--g1) 0%,var(--g2) 30%,var(--g3
 .box:nth-of-type(odd){background:color-mix(in srgb,var(--panel) 55%,transparent)}
 .box:nth-of-type(even){background:color-mix(in srgb,var(--accent) 14%,transparent)}
 h1.name{font-size:clamp(1.05rem,3.4vw,1.8rem)}
-#contact{background:#17123a;color:#f3eeff;text-align:center;padding-block:64px 36px}
-#contact h2{color:#ff9bc4}
-#contact .eyebrow{font-weight:700;font-size:.75rem;letter-spacing:.12em;color:#b9a8ff;margin:0 0 6px}
-#contact .lead{margin:0 0 28px;color:#dcd2ff}
-#contact .grid{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));text-align:left}
-#contact .ct{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.2);color:#f3eeff}
-#contact .ct small{color:#b9a8ff}
-#contact .copy{margin:40px 0 0;padding-top:20px;border-top:1px solid rgba(255,255,255,.18);font-size:.85rem;color:#b5a9e0}
+
+#contact {
+    background: #17123a;
+    color: #f3eeff;
+    text-align: center;
+    padding: 64px 18px 36px;
+}
+
+#contact h2 {
+    color: #ff9bc4;
+}
+
+#contact .eyebrow {
+    font-weight: 700;
+    font-size: .75rem;
+    letter-spacing: .12em;
+    color: #b9a8ff;
+    margin: 0 0 6px;
+}
+
+#contact .lead {
+    margin: 0 0 28px;
+    color: #dcd2ff;
+}
+
+/* Four contact boxes in one row */
+#contact .grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    text-align: left;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#contact .ct {
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.2);
+    color: #f3eeff;
+    padding: 14px;
+    min-width: 0;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#contact .ct small {
+    color: #b9a8ff;
+}
+
+#contact .ct b {
+    font-size: clamp(9px, 1vw, 14px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+#contact .copy {
+    margin: 40px 0 0;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,.18);
+    font-size: .85rem;
+    color: #b5a9e0;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    #contact .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #contact .ct b {
+        font-size: 12px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 400px) {
+    #contact .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 </style>
 </head>
 <body>
@@ -240,8 +317,8 @@ h1.name{font-size:clamp(1.05rem,3.4vw,1.8rem)}
 <p class="lead">Looking for a games-industry internship or junior role. Let's team up!</p>
 <div class="grid">
 <a class="card ct" href="mailto:aleessyaalmaz@gmail.com"><small class="org">Email</small><b>aleessyaalmaz@gmail.com</b></a>
-<a class="card ct" href="tel:+60168012605"><small class="org">Phone</small><b>0168012605</b></a>
-<a class="card ct" href="https://linkedin.com/in/aleessya-almaz-r-88826a1aa/" target="_blank" rel="noopener"><small class="org">LinkedIn</small><b>linkedin.com/in/aleessya-almaz-r-88826a1aa</b></a>
+<a class="card ct" href="tel:+60168012605"><small class="org">Phone</small><b>+60168012605</b></a>
+<a class="card ct" href="https://linkedin.com/in/aleessya-almaz-r-88826a1aa/" target="_blank" rel="noopener"><small class="org">LinkedIn</small><b>aleessya-razali</b></a>
 <div class="card ct"><small class="org">Location</small><b>Ampang, Selangor</b></div>
 </div>
 <p class="copy">© 2026 Aleessya Almaz binti Razali. All rights reserved.</p>
