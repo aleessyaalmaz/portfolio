@@ -52,7 +52,6 @@ footer{text-align:center;color:var(--muted);font-size:.8rem}
 .ctl .btn{stroke:var(--line);stroke-width:3;cursor:pointer}
 .ctl .btn:active{transform:scale(.8);transform-box:fill-box;transform-origin:center}
 .b1{fill:var(--xp)}.b2{fill:var(--accent2)}.b3{fill:#6aa5e0}.b4{fill:#fff}
-#hud{font-family:'Press Start 2P',monospace;font-size:.55rem;align-self:center;color:var(--accent2)}
 .gallery{position:relative;margin:10px 0}
 .track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;border:3px solid var(--line);background:var(--bg)}
 .track figure{flex:0 0 100%;margin:0;scroll-snap-align:center}
@@ -80,12 +79,30 @@ footer{text-align:center;color:var(--muted);font-size:.8rem}
 .pbody p{font-size:.9rem;margin:.4rem 0}
 .badge{display:inline-block;font-size:.7rem;font-weight:700;border:2px solid var(--line);padding:1px 8px;background:var(--panel);color:var(--accent2)}
 .pfoot{display:flex;justify-content:space-between;gap:8px;padding:10px 14px;border-top:2px solid var(--line);font-size:.8rem;color:var(--muted)}
+.box{border-radius:28px}
+.card,.pcard,.slot,.pfp{border-radius:20px;overflow:hidden}
+nav a,button{border-radius:12px}
+.tag{border-radius:999px}
+.quest{border-radius:4px}
+#lb img{border-radius:16px}
+.edu{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.eh{font-family:Nunito,system-ui,sans-serif;font-size:1.1rem;margin:0 0 14px}
+.ecard,.acard{background:var(--panel);border:1px solid color-mix(in srgb,var(--ink) 15%,transparent);border-radius:22px;box-shadow:0 6px 18px rgba(0,0,0,.10);padding:20px;margin-bottom:16px}
+.etag{display:inline-block;font-size:.75rem;font-weight:700;padding:2px 10px;border-radius:8px;background:color-mix(in srgb,var(--accent) 22%,transparent)}
+.ecard h4,.acard h4{font-family:Nunito,system-ui,sans-serif;font-size:1.1rem;margin:.5rem 0 .2rem}
+.acard h4{margin:.1rem 0}
+.ecard p{margin:0 0 12px;color:var(--muted)}
+.efoot{display:flex;justify-content:space-between;align-items:center;gap:8px;border-top:1px solid color-mix(in srgb,var(--ink) 18%,transparent);padding-top:12px;font-size:.85rem;color:var(--muted)}
+.pill{background:color-mix(in srgb,var(--xp) 40%,transparent);color:var(--ink);border-radius:999px;padding:3px 12px;font-size:.8rem}
+.acard{display:flex;gap:14px;align-items:center;padding:16px}
+.ico{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;font-size:1.3rem;background:color-mix(in srgb,var(--accent) 22%,transparent);flex:none}
+.org{display:block;font-weight:700;font-size:.7rem;color:var(--accent);text-transform:uppercase;letter-spacing:.05em}
+.sub{font-size:.85rem;color:var(--muted)}
 </style>
 </head>
 <body>
 <nav>
-<a href="#about">PROFILE</a><a href="#education">EDUCATION</a><a href="#skills">SKILLS</a><a href="#experience">EXPERIENCE</a><a href="#quests">QUESTS</a><a href="#inventory">INVENTORY</a><a href="#contact">CONTACT</a>
-<span id="hud">LV 1 · XP 0</span>
+<a href="#education">EDUCATION</a><a href="#skills">SKILLS</a><a href="#experience">EXPERIENCE</a><a href="#quests">QUESTS</a><a href="#inventory">INVENTORY</a><a href="#contact">CONTACT</a>
 <button id="theme" aria-label="Toggle day and night">DAY/NIGHT</button>
 </nav>
 <div class="wrap">
@@ -98,7 +115,7 @@ footer{text-align:center;color:var(--muted);font-size:.8rem}
 <rect class="dp" x="88" y="72" width="24" height="8"/>
 <circle class="btn b1" cx="140" cy="45" r="8"/><circle class="btn b2" cx="156" cy="60" r="8"/><circle class="btn b3" cx="124" cy="60" r="8"/><circle class="btn b4" cx="140" cy="75" r="8"/>
 </svg>
-<figcaption>🎮 Tap the buttons to earn XP<br>📌 PLACEHOLDER: replace with your photo or 2D art</figcaption>
+<figcaption>📌 PLACEHOLDER: replace with your photo or 2D art</figcaption>
 </figure>
 <div>
 <p class="blink px">▶ PLAYER ONE READY</p>
@@ -109,29 +126,18 @@ footer{text-align:center;color:var(--muted);font-size:.8rem}
 </div>
 </header>
 
-<section class="box" id="about">
-<h2>★ CHARACTER PROFILE</h2>
-<div class="who"><div class="pfp" data-pfp><svg viewBox='0 0 16 16' shape-rendering='crispEdges' role='img' aria-label='Profile picture placeholder'><rect class='pf' x='5' y='2' width='6' height='6'/><rect class='pf' x='3' y='9' width='10' height='6'/></svg></div><p><b>PLAYER 1: SSYA</b><br><small style="color:var(--muted)">📌 Placeholder: add your profile picture</small></p></div>
-<div class="grid">
-<div class="card"><h3>CLASS</h3><p>Multimedia Computing grad, game dev &amp; narrative builder</p></div>
-<div class="card"><h3>HOME GUILD</h3><p>FCSIT, UNIMAS</p></div>
-<div class="card"><h3>CURRENT QUEST</h3><p>8-month protégé programme at CAAM KLATCC, while seeking a games-industry placement</p></div>
-<div class="card"><h3>PLAYSTYLE</h3><p>Calm, detail-loving, happy to sink 5+ hours into one great world</p></div>
-</div>
-</section>
-
 <section class="box" id="education">
 <h2>★ EDUCATION &amp; ACHIEVEMENTS</h2>
-<div class="grid">
+<div class="edu">
 <div>
-<h3>🎓 EDUCATION LEVEL</h3>
-<div class="card" style="margin-bottom:14px"><span class="tag">Bachelor's Degree</span><h3>Universiti Malaysia Sarawak (UNIMAS)</h3><p>Bachelor of Computer Science (Multimedia Computing)</p><p><small style="color:var(--muted)">📅 October 2022 - July 2026</small> <span class="tag">CGPA: 3.09</span></p></div>
-<div class="card"><span class="tag">Diploma</span><h3>Universiti Teknologi MARA (UiTM)</h3><p>Diploma in Computer Science</p><p><small style="color:var(--muted)">📅 June 2018 - February 2022</small> <span class="tag">CGPA: 3.23</span></p></div>
+<h3 class="eh">🎓 Education Level</h3>
+<div class="ecard"><span class="etag">Bachelor's Degree</span><h4>Universiti Malaysia Sarawak (UNIMAS)</h4><p>Bachelor of Computer Science (Multimedia Computing)</p><div class="efoot"><span>📅 October 2022 - July 2026</span><b class="pill">CGPA: 3.09</b></div></div>
+<div class="ecard"><span class="etag">Diploma</span><h4>Universiti Teknologi MARA (UiTM)</h4><p>Diploma in Computer Science</p><div class="efoot"><span>📅 June 2018 - February 2022</span><b class="pill">CGPA: 3.23</b></div></div>
 </div>
 <div>
-<h3>🏅 HONOURS &amp; AWARDS</h3>
-<div class="card" style="margin-bottom:14px"><span class="tag">UNIMAS</span><h3>Dean's List Certificate</h3><p><small style="color:var(--muted)">Semester 2, Session 📌 add correct session</small></p></div>
-<div class="card"><span class="tag">UiTM</span><h3>Dean's List Certificate</h3><p><small style="color:var(--muted)">📌 Add semester and session</small></p></div>
+<h3 class="eh">🏅 Honours &amp; Awards</h3>
+<div class="acard"><div class="ico">🏅</div><div><small class="org">UNIMAS</small><h4>Dean's List Certificate</h4><span class="sub">Semester 2, Session 2023/2024</span></div></div>
+<div class="acard"><div class="ico">🏅</div><div><small class="org">UiTM</small><h4>Dean's List Certificate</h4><span class="sub">Semester 1, Session 2018/2019</span></div></div>
 </div>
 </div>
 </section>
@@ -229,12 +235,6 @@ p1:[{src:'images/project1-1.png',cap:'Project 1 screenshot'},{src:'images/projec
 p2:[{src:'images/project2-1.png',cap:'Project 2 screenshot'},{src:'images/project2-2.png',cap:'Project 2 result'}]
 };
 function ph(t,n){var s='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360"><rect width="640" height="360" fill="#e6defa"/><rect x="12" y="12" width="616" height="336" fill="none" stroke="#2a2347" stroke-width="6" stroke-dasharray="14 8"/><text x="320" y="160" text-anchor="middle" font-family="monospace" font-size="28" fill="#2a2347">PICTURE '+n+' (PLACEHOLDER)</text><text x="320" y="205" text-anchor="middle" font-family="monospace" font-size="20" fill="#6b6490">'+t+'</text><text x="320" y="245" text-anchor="middle" font-family="monospace" font-size="16" fill="#6b6490">Add your own image here later</text></svg>';return 'data:image/svg+xml,'+encodeURIComponent(s)}
-var xp=0;
-function gain(n){xp+=n;document.getElementById('hud').textContent='LV '+(Math.floor(xp/100)+1)+' · XP '+xp}
-document.querySelectorAll('.btn').forEach(function(b){b.onclick=function(){gain(10)}});
-var seen={};
-var so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!seen[e.target.id]){seen[e.target.id]=1;gain(25);so.unobserve(e.target)}})},{threshold:.4});
-document.querySelectorAll('section.box').forEach(function(s){so.observe(s)});
 if(PROFILE_IMG){var t=new Image();t.onload=function(){document.getElementById('avatar').innerHTML='<img src="'+PROFILE_IMG+'" alt="Ssya">';document.querySelectorAll('[data-pfp]').forEach(function(p){p.innerHTML='<img src="'+PROFILE_IMG+'" alt="Ssya">'})};t.src=PROFILE_IMG}
 var lb=document.createElement('div');lb.id='lb';lb.hidden=true;
 lb.innerHTML='<button id="lbx">✕ CLOSE</button><img id="lbi" alt=""><p id="lbc"></p><div><button id="lbp">◀</button> <button id="lbn">▶</button></div>';
