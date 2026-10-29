@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Ssya — Player One Portfolio</title>
+<title>Aleessya Almaz binti Razali — Player One Portfolio</title>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#efe9ff;--panel:#ffffff;--ink:#2a2347;--muted:#6b6490;--accent:#7c5cff;--accent2:#e0507a;--line:#2a2347;--xp:#ffc857;
@@ -123,6 +123,20 @@ footer{padding:28px 18px 44px}
 .job .ecard p{margin:0}
 .job .ecard ul{margin:.6rem 0 0;padding-left:1.2rem;color:var(--muted)}
 @media (max-width:640px){.job{grid-template-columns:1fr;gap:0}.jdate{padding-top:0;margin-bottom:6px}.prog{flex-direction:column}}
+body{background-image:linear-gradient(160deg,var(--g1) 0%,var(--g2) 30%,var(--g3) 62%,var(--g4) 100%);background-attachment:scroll}
+:root{--g1:#c9b8ff;--g2:#f6c4e4;--g3:#ffd9bf;--g4:#b9dcff}
+:root[data-theme="dark"]{--g1:#1a1040;--g2:#35165f;--g3:#4a1a4f;--g4:#0e2a52}
+.box:nth-of-type(odd){background:color-mix(in srgb,var(--panel) 55%,transparent)}
+.box:nth-of-type(even){background:color-mix(in srgb,var(--accent) 14%,transparent)}
+h1.name{font-size:clamp(1.05rem,3.4vw,1.8rem)}
+#contact{background:#17123a;color:#f3eeff;text-align:center;padding-block:64px 36px}
+#contact h2{color:#ff9bc4}
+#contact .eyebrow{font-weight:700;font-size:.75rem;letter-spacing:.12em;color:#b9a8ff;margin:0 0 6px}
+#contact .lead{margin:0 0 28px;color:#dcd2ff}
+#contact .grid{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));text-align:left}
+#contact .ct{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.2);color:#f3eeff}
+#contact .ct small{color:#b9a8ff}
+#contact .copy{margin:40px 0 0;padding-top:20px;border-top:1px solid rgba(255,255,255,.18);font-size:.85rem;color:#b5a9e0}
 </style>
 </head>
 <body>
@@ -144,7 +158,7 @@ footer{padding:28px 18px 44px}
 </figure>
 <div>
 <p class="blink px">▶ PLAYER ONE READY</p>
-<h1>Hi, I'm Ssya</h1>
+<h1 class="name">Hi, I'm Aleessya Almaz binti Razali</h1>
 <p class="px" style="font-size:.7rem;color:var(--muted)">Multimedia Computing · Game Developer in the making</p>
 <p>Fresh graduate (B.Comp.Sci, Multimedia Computing, UNIMAS) who builds cozy, story-driven games and loves the quiet magic of a good one.</p>
 <p class="ctas"><a class="cta" href="#quests">View Projects</a><a class="cta" href="resume.pdf" download>⬇ Download Resume</a><a class="cta" href="#contact">Hire Player</a></p>
@@ -216,31 +230,23 @@ footer{padding:28px 18px 44px}
 
 <section class="box" id="programs">
 <h2>★ PROGRAMS &amp; COMMUNITY INITIATIVES</h2>
-<p><small style="color:var(--muted)">📌 Placeholder entries. Replace with your own programs, volunteering and leadership.</small></p>
-<div class="prog"><div class="pico">🎓</div><div><span class="etag">UPSKILLING PROGRAM</span><h4>Sample Program Name</h4><p>Short description of the program, what you did and what you learned. (Dummy text, replace me.)</p><span class="tag">Skill A</span><span class="tag">Skill B</span><span class="tag">Skill C</span></div></div>
-<div class="prog"><div class="pico">🤝</div><div><span class="etag">COMMUNITY VOLUNTEER</span><h4>Sample Community Initiative</h4><p>Describe your role, the event or community, and the impact you made. (Dummy text, replace me.)</p><span class="tag">Event Logistics</span><span class="tag">Teamwork</span><span class="tag">Community Outreach</span></div></div>
-</section>
-
-<section class="box" id="journey">
-<h2>★ ACHIEVEMENTS UNLOCKED</h2>
-<div class="quest"><h3>Bachelor of Computer Science</h3><small>Multimedia Computing, UNIMAS</small></div>
-<div class="quest"><h3>Industry Internship</h3><small>System Consultancy Services (SCS)</small></div>
-<div class="quest"><h3>Final Year Project Completed</h3><small>LUCIA thesis and presentation to my supervisor</small></div>
-<div class="quest"><h3>Protégé Programme</h3><small>CAAM KLATCC, understanding how aircraft fly designated routes under aviation rules</small></div>
+<div class="prog"><div class="pico">🛡️</div><div><span class="etag">CIVIC OUTREACH | UNIMAS</span><h4>SULAM: CYBEARS Awareness Talk</h4><p>Served on the registration and data management committee for a university-led cybersecurity outreach event at Kampung Tanjung Tuang. Managed participant check-ins, maintained attendee records, and conducted pre- and post-event survey evaluations to gather feedback and evaluate program impact.</p><span class="tag">Participant Registration</span><span class="tag">Pre/Post Surveys</span><span class="tag">Data Management</span><span class="tag">Cybersecurity Outreach</span></div></div>
+<div class="prog"><div class="pico">🤝</div><div><span class="etag">PLACEHOLDER</span><h4>Add Another Program</h4><p>📌 Add your next program, volunteering or leadership experience here. (Sample text, replace me.)</p><span class="tag">Skill A</span><span class="tag">Skill B</span></div></div>
 </section>
 
 <section class="box" id="contact">
+<p class="eyebrow">LET'S CONNECT</p>
 <h2>★ JOIN MY PARTY</h2>
-<div class="who"><div class="pfp" data-pfp><svg viewBox='0 0 16 16' shape-rendering='crispEdges' role='img' aria-label='Profile picture placeholder'><rect class='pf' x='5' y='2' width='6' height='6'/><rect class='pf' x='3' y='9' width='10' height='6'/></svg></div><p>Looking for a games-industry internship or junior role. Let's team up!</p></div>
+<p class="lead">Looking for a games-industry internship or junior role. Let's team up!</p>
 <div class="grid">
 <a class="card ct" href="mailto:aleessyaalmaz@gmail.com"><small class="org">Email</small><b>aleessyaalmaz@gmail.com</b></a>
 <a class="card ct" href="tel:+60168012605"><small class="org">Phone</small><b>0168012605</b></a>
 <a class="card ct" href="https://linkedin.com/in/aleessya-almaz-r-88826a1aa/" target="_blank" rel="noopener"><small class="org">LinkedIn</small><b>linkedin.com/in/aleessya-almaz-r-88826a1aa</b></a>
 <div class="card ct"><small class="org">Location</small><b>Ampang, Selangor</b></div>
 </div>
+<p class="copy">© 2026 Aleessya Almaz binti Razali. All rights reserved.</p>
 </section>
 
-<footer class="px" style="font-size:.55rem">© 2026 SSYA · PRESS START TO CONTINUE ▶</footer>
 </div>
 <script>
 document.querySelectorAll('.bar i').forEach(function(b){
@@ -255,7 +261,7 @@ p1:[{src:'images/project1-1.png',cap:'Project 1 screenshot'},{src:'images/projec
 p2:[{src:'images/project2-1.png',cap:'Project 2 screenshot'},{src:'images/project2-2.png',cap:'Project 2 result'}]
 };
 function ph(t,n){var s='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360"><rect width="640" height="360" fill="#e6defa"/><rect x="12" y="12" width="616" height="336" fill="none" stroke="#2a2347" stroke-width="6" stroke-dasharray="14 8"/><text x="320" y="160" text-anchor="middle" font-family="monospace" font-size="28" fill="#2a2347">PICTURE '+n+' (PLACEHOLDER)</text><text x="320" y="205" text-anchor="middle" font-family="monospace" font-size="20" fill="#6b6490">'+t+'</text><text x="320" y="245" text-anchor="middle" font-family="monospace" font-size="16" fill="#6b6490">Add your own image here later</text></svg>';return 'data:image/svg+xml,'+encodeURIComponent(s)}
-if(PROFILE_IMG){var t=new Image();t.onload=function(){document.getElementById('avatar').innerHTML='<img src="'+PROFILE_IMG+'" alt="Ssya">';document.querySelectorAll('[data-pfp]').forEach(function(p){p.innerHTML='<img src="'+PROFILE_IMG+'" alt="Ssya">'})};t.src=PROFILE_IMG}
+if(PROFILE_IMG){var t=new Image();t.onload=function(){document.getElementById('avatar').innerHTML='<img src="'+PROFILE_IMG+'" alt="Aleessya Almaz binti Razali">';document.querySelectorAll('[data-pfp]').forEach(function(p){p.innerHTML='<img src="'+PROFILE_IMG+'" alt="Aleessya Almaz binti Razali">'})};t.src=PROFILE_IMG}
 var lb=document.createElement('div');lb.id='lb';lb.hidden=true;
 lb.innerHTML='<button id="lbx">✕ CLOSE</button><img id="lbi" alt=""><p id="lbc"></p><div><button id="lbp">◀</button> <button id="lbn">▶</button></div>';
 document.body.appendChild(lb);
