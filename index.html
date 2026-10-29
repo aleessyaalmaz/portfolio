@@ -3,12 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Aleessya Almaz binti Razali — Digitial Portfolio</title>
+<title>Aleessya Almaz binti Razali — Digital Portfolio</title>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#efe9ff;--panel:#ffffff;--ink:#2a2347;--muted:#6b6490;--accent:#7c5cff;--accent2:#e0507a;--line:#2a2347;--xp:#ffc857;
+--secA:rgba(255,255,255,.72);--secB:#d9ccff;--secline:#7c5cff;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-:root[data-theme="dark"]{--bg:#120d2b;--panel:#1f1745;--ink:#f3eeff;--muted:#b5a9e0;--accent:#9d86ff;--accent2:#ff7eb3;--line:#f3eeff;--xp:#ffc857}
+:root[data-theme="dark"]{--bg:#120d2b;--panel:#1f1745;--ink:#f3eeff;--muted:#b5a9e0;--accent:#9d86ff;--accent2:#ff7eb3;--line:#f3eeff;--xp:#ffc857;
+--secA:#0c0820;--secB:#33246e;--secline:#9d86ff}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:Nunito,system-ui,sans-serif;line-height:1.6;
@@ -22,25 +24,16 @@ nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;gap:
 nav a,button{font-family:'Press Start 2P',monospace;font-size:.55rem;color:var(--ink);text-decoration:none;padding:8px 10px;border:3px solid var(--line);background:var(--bg);cursor:pointer}
 nav a:hover,button:hover{background:var(--accent);color:#fff}
 .box{background:var(--panel);border:4px solid var(--line);box-shadow:6px 6px 0 var(--line);padding:20px;margin:28px 0}
-.hero{text-align:center;padding:48px 10px 10px}
 .blink{animation:b 1.1s steps(2) infinite;color:var(--accent2);font-size:.7rem}
 @keyframes b{50%{opacity:0}}
 .tag{display:inline-block;font-size:.8rem;border:2px solid var(--line);padding:2px 10px;margin:3px;background:var(--bg)}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
 .card{border:3px solid var(--line);padding:14px;background:var(--bg)}
 .card p{margin:.3rem 0;font-size:.92rem}
-.skill{margin:12px 0}
-.skill span{font-size:.9rem;display:flex;justify-content:space-between}
-.bar{height:16px;border:3px solid var(--line);background:var(--bg);margin-top:4px}
-.bar i{display:block;height:100%;width:0;background:var(--xp);transition:width 1.2s steps(14)}
 .quest{border-left:6px solid var(--accent);padding-left:14px;margin:16px 0}
-.quest small{color:var(--muted)}
-.fav{font-size:2rem}
-.fav-row{display:flex;flex-wrap:wrap;gap:10px}
-.fav-row .card{flex:1 1 150px;text-align:center}
 .top{border-color:var(--accent2)}
 footer{text-align:center;color:var(--muted);font-size:.8rem}
-@media (prefers-reduced-motion:reduce){.blink{animation:none}.bar i{transition:none}}
+@media (prefers-reduced-motion:reduce){.blink{animation:none}}
 .hero{display:grid;grid-template-columns:minmax(0,260px) 1fr;gap:28px;align-items:center;text-align:left;padding:40px 0 10px}
 @media (max-width:640px){.hero{grid-template-columns:1fr;text-align:center}}
 .slot{margin:0;border:4px solid var(--line);background:var(--panel);box-shadow:6px 6px 0 var(--line);padding:14px;text-align:center}
@@ -62,10 +55,6 @@ footer{text-align:center;color:var(--muted);font-size:.8rem}
 #lb[hidden]{display:none}
 #lb img{max-width:100%;max-height:68vh;border:4px solid #fff;background:#fff}
 #lb p{color:#fff;margin:0;font-size:.85rem;text-align:center}
-.who{display:flex;gap:16px;align-items:center;margin-bottom:16px}
-.pfp{width:96px;height:96px;flex:none;border:4px solid var(--line);background:var(--bg);box-shadow:4px 4px 0 var(--line);overflow:hidden}
-.pfp svg,.pfp img{width:100%;height:100%;object-fit:cover;display:block}
-.pf{fill:var(--muted)}
 .filters{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 18px}
 .chip.on{background:var(--accent);color:#fff}
 .chip span{opacity:.7;margin-left:4px}
@@ -79,7 +68,7 @@ footer{text-align:center;color:var(--muted);font-size:.8rem}
 .badge{display:inline-block;font-size:.7rem;font-weight:700;border:2px solid var(--line);padding:1px 8px;background:var(--panel);color:var(--accent2)}
 .pfoot{display:flex;justify-content:space-between;gap:8px;padding:10px 14px;border-top:2px solid var(--line);font-size:.8rem;color:var(--muted)}
 .box{border-radius:28px}
-.card,.pcard,.slot,.pfp{border-radius:20px;overflow:hidden}
+.card,.pcard,.slot{border-radius:20px;overflow:hidden}
 nav a,button{border-radius:12px}
 .tag{border-radius:999px}
 .quest{border-radius:4px}
@@ -107,8 +96,6 @@ nav a,button{border-radius:12px}
 .wrap{max-width:none;margin:0;padding:0}
 .hero{padding:56px max(18px,calc((100% - 900px)/2)) 40px}
 .box{background:none;border:0;box-shadow:none;border-radius:0;margin:0;padding:56px max(18px,calc((100% - 900px)/2))}
-.box:nth-of-type(odd){background:color-mix(in srgb,var(--panel) 88%,transparent)}
-.box:nth-of-type(even){background:color-mix(in srgb,var(--accent) 12%,transparent)}
 #quests{padding-block:72px;padding-inline:max(18px,calc((100% - 1200px)/2))}
 #quests .pgrid{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
 #quests .pbody p{font-size:.95rem}
@@ -123,102 +110,41 @@ footer{padding:28px 18px 44px}
 .job .ecard p{margin:0}
 .job .ecard ul{margin:.6rem 0 0;padding-left:1.2rem;color:var(--muted)}
 @media (max-width:640px){.job{grid-template-columns:1fr;gap:0}.jdate{padding-top:0;margin-bottom:6px}.prog{flex-direction:column}}
-body{background-image:linear-gradient(160deg,var(--g1) 0%,var(--g2) 30%,var(--g3) 62%,var(--g4) 100%);background-attachment:scroll}
 :root{--g1:#c9b8ff;--g2:#f6c4e4;--g3:#ffd9bf;--g4:#b9dcff}
-:root[data-theme="dark"]{--g1:#1a1040;--g2:#35165f;--g3:#4a1a4f;--g4:#0e2a52}
-.box:nth-of-type(odd){background:color-mix(in srgb,var(--panel) 55%,transparent)}
-.box:nth-of-type(even){background:color-mix(in srgb,var(--accent) 14%,transparent)}
+:root[data-theme="dark"]{--g1:#1a1040;--g2:#2b1556;--g3:#3a1a52;--g4:#0e2a52}
+body{background-image:linear-gradient(160deg,var(--g1) 0%,var(--g2) 30%,var(--g3) 62%,var(--g4) 100%);background-attachment:scroll}
 h1.name{font-size:clamp(1.05rem,3.4vw,1.8rem)}
 
-#contact {
-    background: #17123a;
-    color: #f3eeff;
-    text-align: center;
-    padding: 64px 18px 36px;
-}
+/* NEW: clearly alternating section colours + accent divider */
+.box:not(#contact){border-top:3px solid var(--secline)}
+.box:nth-of-type(odd){background:var(--secA)}
+.box:nth-of-type(even){background:var(--secB)}
 
-#contact h2 {
-    color: #ff9bc4;
-}
+/* NEW: about section */
+.about{display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:start}
+@media (max-width:760px){.about{grid-template-columns:1fr}}
+.about p{margin:0 0 14px}
+.facts{display:grid;gap:12px}
+.fact{background:var(--panel);border:1px solid color-mix(in srgb,var(--ink) 15%,transparent);border-radius:20px;box-shadow:0 6px 18px rgba(0,0,0,.10);padding:14px 18px}
+.fact small{display:block;font-weight:700;font-size:.7rem;color:var(--accent);text-transform:uppercase;letter-spacing:.05em}
+.fact b{font-size:.95rem}
 
-#contact .eyebrow {
-    font-weight: 700;
-    font-size: .75rem;
-    letter-spacing: .12em;
-    color: #b9a8ff;
-    margin: 0 0 6px;
-}
-
-#contact .lead {
-    margin: 0 0 28px;
-    color: #dcd2ff;
-}
-
-/* Four contact boxes in one row */
-#contact .grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 16px;
-    text-align: left;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-#contact .ct {
-    background: rgba(255,255,255,.07);
-    border: 1px solid rgba(255,255,255,.2);
-    color: #f3eeff;
-    padding: 14px;
-    min-width: 0;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-#contact .ct small {
-    color: #b9a8ff;
-}
-
-#contact .ct b {
-    font-size: clamp(9px, 1vw, 14px);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: block;
-}
-
-#contact .copy {
-    margin: 40px 0 0;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,.18);
-    font-size: .85rem;
-    color: #b5a9e0;
-}
-
-/* Tablet */
-@media (max-width: 768px) {
-    #contact .grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    #contact .ct b {
-        font-size: 12px;
-    }
-}
-
-/* Mobile */
-@media (max-width: 400px) {
-    #contact .grid {
-        grid-template-columns: 1fr;
-    }
-}
-
+#contact{background:#17123a;color:#f3eeff;text-align:center;padding:64px 18px 36px}
+#contact h2{color:#ff9bc4}
+#contact .eyebrow{font-weight:700;font-size:.75rem;letter-spacing:.12em;color:#b9a8ff;margin:0 0 6px}
+#contact .lead{margin:0 0 28px;color:#dcd2ff}
+#contact .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;text-align:left;max-width:1200px;margin:0 auto}
+#contact .ct{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.2);color:#f3eeff;padding:14px;min-width:0;border-radius:20px;display:flex;flex-direction:column;justify-content:center}
+#contact .ct small{color:#b9a8ff}
+#contact .ct b{font-size:clamp(9px,1vw,14px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+#contact .copy{margin:40px 0 0;padding-top:20px;border-top:1px solid rgba(255,255,255,.18);font-size:.85rem;color:#b5a9e0}
+@media (max-width:768px){#contact .grid{grid-template-columns:repeat(2,minmax(0,1fr))}#contact .ct b{font-size:12px}}
+@media (max-width:400px){#contact .grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <nav>
-<a href="#education">EDUCATION</a><a href="#skills">SKILLS</a><a href="#experience">CAREER</a><a href="#quests">PROJECTS</a><a href="#programs">PROGRAMS</a><a href="#contact">CONTACT</a>
+<a href="#about">ABOUT</a><a href="#education">EDUCATION</a><a href="#skills">SKILLS</a><a href="#experience">CAREER</a><a href="#quests">PROJECTS</a><a href="#programs">PROGRAMS</a><a href="#contact">CONTACT</a>
 <button id="theme" aria-label="Toggle day and night">DAY/NIGHT</button>
 </nav>
 <div class="wrap">
@@ -241,6 +167,24 @@ h1.name{font-size:clamp(1.05rem,3.4vw,1.8rem)}
 <p class="ctas"><a class="cta" href="#quests">View Projects</a><a class="cta" href="resume.pdf" download>⬇ Download Resume</a><a class="cta" href="#contact">Hire Player</a></p>
 </div>
 </header>
+
+<section class="box" id="about">
+<h2>★ ABOUT ME</h2>
+<div class="about">
+<div>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>Curabitur pretium tincidunt lacus. Nulla gravida orci a odio, et facilisis nisl tincidunt vel. (Dummy text, replace me with your own introduction.)</p>
+<span class="tag">Storytelling</span><span class="tag">Cozy games</span><span class="tag">Always learning</span>
+</div>
+<div class="facts">
+<div class="fact"><small>Currently</small><b>Protégé at CAAM KLATCC</b></div>
+<div class="fact"><small>Studied</small><b>B.Comp.Sci (Multimedia Computing), UNIMAS</b></div>
+<div class="fact"><small>Looking for</small><b>Game &amp; software development roles</b></div>
+<div class="fact"><small>Fun fact</small><b>📌 Add something about you</b></div>
+</div>
+</div>
+</section>
 
 <section class="box" id="education">
 <h2>★ EDUCATION &amp; ACHIEVEMENTS</h2>
@@ -326,19 +270,17 @@ h1.name{font-size:clamp(1.05rem,3.4vw,1.8rem)}
 
 </div>
 <script>
-document.querySelectorAll('.bar i').forEach(function(b){
-var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){b.style.width=b.dataset.w+'%';io.disconnect()}})});io.observe(b)});
 document.getElementById('theme').onclick=function(){
 var r=document.documentElement,dark=r.dataset.theme==='dark';
 r.dataset.theme=dark?'light':'dark'};
-var PROFILE_IMG='profile.jpg'; // photo file in the same folder as index.html; the controller shows if it is missing
+var PROFILE_IMG='profile.jpg';
 var GALLERY={
 lucia:[{src:'images/lucia-1.png',cap:'Gameplay screenshot'},{src:'images/lucia-2.png',cap:'Character art or dialogue scene'},{src:'images/lucia-3.png',cap:'Menu or leaderboard screen'}],
 p1:[{src:'images/project1-1.png',cap:'Project 1 screenshot'},{src:'images/project1-2.png',cap:'Project 1 result'}],
 p2:[{src:'images/project2-1.png',cap:'Project 2 screenshot'},{src:'images/project2-2.png',cap:'Project 2 result'}]
 };
 function ph(t,n){var s='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360"><rect width="640" height="360" fill="#e6defa"/><rect x="12" y="12" width="616" height="336" fill="none" stroke="#2a2347" stroke-width="6" stroke-dasharray="14 8"/><text x="320" y="160" text-anchor="middle" font-family="monospace" font-size="28" fill="#2a2347">PICTURE '+n+' (PLACEHOLDER)</text><text x="320" y="205" text-anchor="middle" font-family="monospace" font-size="20" fill="#6b6490">'+t+'</text><text x="320" y="245" text-anchor="middle" font-family="monospace" font-size="16" fill="#6b6490">Add your own image here later</text></svg>';return 'data:image/svg+xml,'+encodeURIComponent(s)}
-if(PROFILE_IMG){var t=new Image();t.onload=function(){document.getElementById('avatar').innerHTML='<img src="'+PROFILE_IMG+'" alt="Aleessya Almaz binti Razali">';document.querySelectorAll('[data-pfp]').forEach(function(p){p.innerHTML='<img src="'+PROFILE_IMG+'" alt="Aleessya Almaz binti Razali">'})};t.src=PROFILE_IMG}
+if(PROFILE_IMG){var t=new Image();t.onload=function(){document.getElementById('avatar').innerHTML='<img src="'+PROFILE_IMG+'" alt="Aleessya Almaz binti Razali">'};t.src=PROFILE_IMG}
 var lb=document.createElement('div');lb.id='lb';lb.hidden=true;
 lb.innerHTML='<button id="lbx">✕ CLOSE</button><img id="lbi" alt=""><p id="lbc"></p><div><button id="lbp">◀</button> <button id="lbn">▶</button></div>';
 document.body.appendChild(lb);
