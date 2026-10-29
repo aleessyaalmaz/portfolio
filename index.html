@@ -120,14 +120,6 @@ h1.name{font-size:clamp(1.05rem,3.4vw,1.8rem)}
 .box:nth-of-type(odd){background:var(--secA)}
 .box:nth-of-type(even){background:var(--secB)}
 
-/* NEW: about section */
-.about{display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:start}
-@media (max-width:760px){.about{grid-template-columns:1fr}}
-.about p{margin:0 0 14px}
-.facts{display:grid;gap:12px}
-.fact{background:var(--panel);border:1px solid color-mix(in srgb,var(--ink) 15%,transparent);border-radius:20px;box-shadow:0 6px 18px rgba(0,0,0,.10);padding:14px 18px}
-.fact small{display:block;font-weight:700;font-size:.7rem;color:var(--accent);text-transform:uppercase;letter-spacing:.05em}
-.fact b{font-size:.95rem}
 
 #contact{background:#17123a;color:#f3eeff;text-align:center;padding:64px 18px 36px}
 #contact h2{color:#ff9bc4}
@@ -140,11 +132,29 @@ h1.name{font-size:clamp(1.05rem,3.4vw,1.8rem)}
 #contact .copy{margin:40px 0 0;padding-top:20px;border-top:1px solid rgba(255,255,255,.18);font-size:.85rem;color:#b5a9e0}
 @media (max-width:768px){#contact .grid{grid-template-columns:repeat(2,minmax(0,1fr))}#contact .ct b{font-size:12px}}
 @media (max-width:400px){#contact .grid{grid-template-columns:1fr}}
+
+/* hero: about + walking pixel penguin */
+:root{--pk:#14b8a6;--pw:#ffffff;--po:#ffb000}
+:root[data-theme="dark"]{--pk:#2dd4bf}
+.hero .name{margin-bottom:.2rem}
+.aboutlbl{font-size:.7rem;color:var(--accent2);margin:1.1rem 0 .4rem}
+.hero p{margin:.5rem 0}
+
+/* hero: snow + penguin background, text left / photo right */
+.hero{position:relative;overflow:hidden;padding-bottom:110px;background:linear-gradient(180deg,#b9a6ff 0%,#d6e4ff 100%)}
+:root[data-theme="dark"] .hero{background:linear-gradient(180deg,#0e0a26 0%,#241a52 100%)}
+.bgfx{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.hero>*:not(.bgfx){position:relative;z-index:1}
+@media (min-width:641px){.hero{grid-template-columns:minmax(0,340px) 1fr}}
+.kick{font-weight:700;font-size:.8rem;letter-spacing:.14em;color:var(--accent);margin:0 0 6px}
+.hero .hello{font-size:1.4rem;font-weight:700;margin:0;color:var(--muted)}
+.hero .slot{background:transparent;border:0;box-shadow:0 14px 34px rgba(0,0,0,.22);padding:0;border-radius:28px}
+.hero .slot figcaption{padding:8px}
 </style>
 </head>
 <body>
 <nav>
-<a href="#about">ABOUT</a><a href="#education">EDUCATION</a><a href="#skills">SKILLS</a><a href="#experience">CAREER</a><a href="#quests">PROJECTS</a><a href="#programs">PROGRAMS</a><a href="#contact">CONTACT</a>
+<a href="#education">EDUCATION</a><a href="#skills">SKILLS</a><a href="#experience">CAREER</a><a href="#quests">PROJECTS</a><a href="#programs">PROGRAMS</a><a href="#contact">CONTACT</a>
 <button id="theme" aria-label="Toggle day and night">DAY/NIGHT</button>
 </nav>
 <div class="wrap">
@@ -160,31 +170,15 @@ h1.name{font-size:clamp(1.05rem,3.4vw,1.8rem)}
 <figcaption>📌 PLACEHOLDER: replace with your photo or 2D art</figcaption>
 </figure>
 <div>
-<p class="blink px">▶ PLAYER ONE READY</p>
-<h1 class="name">Hi, I'm Aleessya Almaz binti Razali</h1>
-<p class="px" style="font-size:.7rem;color:var(--muted)">Multimedia Computing · Game Developer in the making</p>
-<p>Fresh graduate (B.Comp.Sci, Multimedia Computing, UNIMAS) who builds cozy, story-driven games and loves the quiet magic of a good one.</p>
-<p class="ctas"><a class="cta" href="#quests">View Projects</a><a class="cta" href="resume.pdf" download>⬇ Download Resume</a><a class="cta" href="#contact">Hire Player</a></p>
-</div>
-</header>
-
-<section class="box" id="about">
-<h2>★ ABOUT ME</h2>
-<div class="about">
-<div>
+<p class="kick">ABOUT ME</p>
+<p class="hello">Hello! I'm</p>
+<h1 class="name">Aleessya Almaz binti Razali</h1>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 <p>Curabitur pretium tincidunt lacus. Nulla gravida orci a odio, et facilisis nisl tincidunt vel. (Dummy text, replace me with your own introduction.)</p>
-<span class="tag">Storytelling</span><span class="tag">Cozy games</span><span class="tag">Always learning</span>
+<p class="ctas"><a class="cta" href="#quests">View Projects</a><a class="cta" href="resume.pdf" download>⬇ Download Resume</a><a class="cta" href="#contact">Hire Player</a></p>
 </div>
-<div class="facts">
-<div class="fact"><small>Currently</small><b>Protégé at CAAM KLATCC</b></div>
-<div class="fact"><small>Studied</small><b>B.Comp.Sci (Multimedia Computing), UNIMAS</b></div>
-<div class="fact"><small>Looking for</small><b>Game &amp; software development roles</b></div>
-<div class="fact"><small>Fun fact</small><b>📌 Add something about you</b></div>
-</div>
-</div>
-</section>
+</header>
 
 <section class="box" id="education">
 <h2>★ EDUCATION &amp; ACHIEVEMENTS</h2>
@@ -299,6 +293,33 @@ list.forEach(function(it,i){var f=document.createElement('figure'),im=new Image(
 g.appendChild(tr);
 ['prev','next'].forEach(function(d){var b=document.createElement('button');b.className='gnav g'+d;b.textContent=d==='prev'?'◀':'▶';b.setAttribute('aria-label',d);b.onclick=function(){tr.scrollBy({left:(d==='prev'?-1:1)*tr.clientWidth,behavior:'smooth'})};g.appendChild(b)})});
 document.querySelectorAll('.chip').forEach(function(c){c.onclick=function(){document.querySelectorAll('.chip').forEach(function(x){x.classList.remove('on')});c.classList.add('on');document.querySelectorAll('.pcard').forEach(function(p){p.hidden=!(c.dataset.f==='all'||p.dataset.cat===c.dataset.f)})}});
+
+(function(){
+var hero=document.querySelector('.hero'),cv=document.createElement('canvas');cv.className='bgfx';hero.insertBefore(cv,hero.firstChild);
+var ctx=cv.getContext('2d'),W=0,H=0,flakes=[],pens=[],G=16,still=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+var BODY=[[4,0,6,1],[3,1,8,1],[2,2,10,8],[3,10,8,2],[1,5,1,4],[12,5,1,4],[5,4,1,1],[9,4,1,1]],
+BELLY=[[4,6,6,5],[5,5,4,1],[4,3,2,2],[8,3,2,2]],BEAK=[[6,4,2,2]];
+function css(v){return getComputedStyle(document.documentElement).getPropertyValue(v).trim()}
+function size(){var r=hero.getBoundingClientRect(),D=Math.min(window.devicePixelRatio||1,2);W=r.width;H=r.height;cv.width=W*D;cv.height=H*D;ctx.setTransform(D,0,0,D,0,0);
+flakes=[];var n=Math.round(W*H/8000);for(var i=0;i<n;i++)flakes.push({x:Math.random()*W,y:Math.random()*H,s:Math.random()<.7?2:4,v:14+Math.random()*34,p:Math.random()*6.28,a:.45+Math.random()*.5});
+pens=[[.08,3,26,1],[.32,4,18,-1],[.58,2,34,1],[.84,3,22,-1]].map(function(a){return{x:a[0]*W,u:a[1],v:a[2],d:a[3]}});draw(0)}
+function rects(l,x,y,u,d,c){ctx.fillStyle=c;l.forEach(function(r){var rx=d>0?r[0]:14-r[0]-r[2];ctx.fillRect(Math.round(x+rx*u),Math.round(y+r[1]*u),r[2]*u,r[3]*u)})}
+function draw(t){ctx.clearRect(0,0,W,H);
+flakes.forEach(function(f){ctx.fillStyle='rgba(255,255,255,'+f.a+')';ctx.fillRect(Math.round(f.x+Math.sin(t/1000+f.p)*8),Math.round(f.y),f.s,f.s)});
+ctx.fillStyle='rgba(255,255,255,.9)';ctx.fillRect(0,H-G,W,G);for(var x=0;x<W;x+=24){ctx.fillRect(x,H-G-4,12,4)}
+var pk=css('--pk'),po=css('--po'),fr=Math.floor(t/260)%2;
+pens.forEach(function(p){var y=H-G+3-13*p.u-(fr?p.u*.5:0);
+rects(BODY,p.x,y,p.u,p.d,pk);rects(BELLY,p.x,y,p.u,p.d,'#ffffff');
+rects([[5,4,1,1],[9,4,1,1]],p.x,y,p.u,p.d,pk);
+rects(BEAK,p.x,y,p.u,p.d,po);
+rects(fr?[[5,12,3,1],[7,12,3,1]]:[[4,12,3,1],[8,12,3,1]],p.x,H-G+3-13*p.u,p.u,p.d,po)})}
+var last=0;function loop(t){var dt=(t-last)/1000;last=t;if(dt>.1)dt=.016;
+flakes.forEach(function(f){f.y+=f.v*dt;if(f.y>H-G){f.y=-6;f.x=Math.random()*W}});
+pens.forEach(function(p){p.x+=p.v*p.d*dt;if(p.d>0&&p.x>W+10)p.x=-14*p.u;if(p.d<0&&p.x<-14*p.u-10)p.x=W+10});
+draw(t);requestAnimationFrame(loop)}
+size();new ResizeObserver(size).observe(hero);if(!still)requestAnimationFrame(loop);
+document.getElementById('theme').addEventListener('click',function(){setTimeout(function(){draw(0)},0)});
+})();
 </script>
 </body>
 </html>
