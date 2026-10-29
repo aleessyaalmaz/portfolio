@@ -98,11 +98,18 @@ nav a,button{border-radius:12px}
 .ico{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;font-size:1.3rem;background:color-mix(in srgb,var(--accent) 22%,transparent);flex:none}
 .org{display:block;font-weight:700;font-size:.7rem;color:var(--accent);text-transform:uppercase;letter-spacing:.05em}
 .sub{font-size:.85rem;color:var(--muted)}
+.ctas{display:flex;gap:10px;flex-wrap:wrap}
+@media (max-width:640px){.ctas{justify-content:center}}
+.cta{display:inline-block;padding:10px 18px;border-radius:999px;background:var(--ink);color:var(--panel);font-weight:700;font-size:.9rem;text-decoration:none;border:2px solid var(--ink)}
+.cta:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.ct{display:flex;flex-direction:column;gap:2px;color:var(--ink);text-decoration:none;min-width:0}
+.ct b{word-break:break-word}
+.ct small{font-weight:700;font-size:.7rem;color:var(--accent);text-transform:uppercase;letter-spacing:.05em}
 </style>
 </head>
 <body>
 <nav>
-<a href="#education">EDUCATION</a><a href="#skills">SKILLS</a><a href="#experience">EXPERIENCE</a><a href="#quests">QUESTS</a><a href="#inventory">INVENTORY</a><a href="#contact">CONTACT</a>
+<a href="#education">EDUCATION</a><a href="#skills">SKILLS</a><a href="#experience">EXPERIENCE</a><a href="#quests">QUESTS</a><a href="#contact">CONTACT</a>
 <button id="theme" aria-label="Toggle day and night">DAY/NIGHT</button>
 </nav>
 <div class="wrap">
@@ -122,7 +129,7 @@ nav a,button{border-radius:12px}
 <h1>Hi, I'm Ssya</h1>
 <p class="px" style="font-size:.7rem;color:var(--muted)">Multimedia Computing · Game Developer in the making</p>
 <p>Fresh graduate (B.Comp.Sci, Multimedia Computing, UNIMAS) who builds cozy, story-driven games and loves the quiet magic of a good one.</p>
-<p><a class="tag" href="#quests">View my quests</a><a class="tag" href="#contact">Hire this player</a></p>
+<p class="ctas"><a class="cta" href="#quests">View Projects</a><a class="cta" href="resume.pdf" download>⬇ Download Resume</a><a class="cta" href="#contact">Hire Player</a></p>
 </div>
 </header>
 
@@ -189,19 +196,6 @@ nav a,button{border-radius:12px}
 <div class="quest"><h3>Protégé Programme: CAAM KLATCC</h3><p>8-month programme focused on understanding how aircraft fly designated routes under aviation rules and regulations.</p><small>Current</small></div>
 </section>
 
-<section class="box" id="inventory">
-<h2>★ INVENTORY: FAVOURITE GAMES</h2>
-<div class="fav-row">
-<div class="card top"><div class="fav">🌊</div><h3>Coral Island</h3><p>Top pick</p></div>
-<div class="card top"><div class="fav">🌾</div><h3>Stardew Valley</h3><p>Top pick</p></div>
-<div class="card"><div class="fav">⛏️</div><h3>Minecraft</h3></div>
-<div class="card"><div class="fav">🌸</div><h3>Fields of Mistria</h3></div>
-<div class="card"><div class="fav">🛒</div><h3>Supermarket Simulator</h3></div>
-<div class="card"><div class="fav">🏰</div><h3>Going Medieval</h3></div>
-</div>
-<p>I'm drawn to calm, cosy worlds with satisfying loops. That's the feeling I want to design for.</p>
-</section>
-
 <section class="box" id="journey">
 <h2>★ ACHIEVEMENTS UNLOCKED</h2>
 <div class="quest"><h3>Bachelor of Computer Science</h3><small>Multimedia Computing, UNIMAS</small></div>
@@ -213,12 +207,12 @@ nav a,button{border-radius:12px}
 <section class="box" id="contact">
 <h2>★ JOIN MY PARTY</h2>
 <div class="who"><div class="pfp" data-pfp><svg viewBox='0 0 16 16' shape-rendering='crispEdges' role='img' aria-label='Profile picture placeholder'><rect class='pf' x='5' y='2' width='6' height='6'/><rect class='pf' x='3' y='9' width='10' height='6'/></svg></div><p>Looking for a games-industry internship or junior role. Let's team up!</p></div>
-<p>
-<span class="tag">📧 your-email@example.com</span>
-<span class="tag">💼 linkedin.com/in/your-name</span>
-<span class="tag">🎮 itch.io/your-profile</span>
-</p>
-<small style="color:var(--muted)">Replace the placeholders above with your real links.</small>
+<div class="grid">
+<a class="card ct" href="mailto:aleessyaalmaz@gmail.com"><small class="org">Email</small><b>aleessyaalmaz@gmail.com</b></a>
+<a class="card ct" href="tel:+60168012605"><small class="org">Phone</small><b>+60168012605</b></a>
+<a class="card ct" href="https://linkedin.com/in/aleessya-almaz-r-88826a1aa/" target="_blank" rel="noopener"><small class="org">LinkedIn</small><b>linkedin.com/in/aleessya-almaz-r-88826a1aa</b></a>
+<div class="card ct"><small class="org">Location</small><b>Ampang, Selangor</b></div>
+</div>
 </section>
 
 <footer class="px" style="font-size:.55rem">© 2026 SSYA · PRESS START TO CONTINUE ▶</footer>
