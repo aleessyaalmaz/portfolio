@@ -105,6 +105,15 @@ nav a,button{border-radius:12px}
 .ct{display:flex;flex-direction:column;gap:2px;color:var(--ink);text-decoration:none;min-width:0}
 .ct b{word-break:break-word}
 .ct small{font-weight:700;font-size:.7rem;color:var(--accent);text-transform:uppercase;letter-spacing:.05em}
+.wrap{max-width:none;margin:0;padding:0}
+.hero{padding:56px max(18px,calc((100% - 900px)/2)) 40px}
+.box{background:none;border:0;box-shadow:none;border-radius:0;margin:0;padding:56px max(18px,calc((100% - 900px)/2))}
+.box:nth-of-type(odd){background:color-mix(in srgb,var(--panel) 88%,transparent)}
+.box:nth-of-type(even){background:color-mix(in srgb,var(--accent) 12%,transparent)}
+#quests{padding-block:72px;padding-inline:max(18px,calc((100% - 1200px)/2))}
+#quests .pgrid{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
+#quests .pbody p{font-size:.95rem}
+footer{padding:28px 18px 44px}
 </style>
 </head>
 <body>
@@ -129,7 +138,7 @@ nav a,button{border-radius:12px}
 <h1>Hi, I'm Ssya</h1>
 <p class="px" style="font-size:.7rem;color:var(--muted)">Multimedia Computing · Game Developer in the making</p>
 <p>Fresh graduate (B.Comp.Sci, Multimedia Computing, UNIMAS) who builds cozy, story-driven games and loves the quiet magic of a good one.</p>
-<p class="ctas"><a class="cta" href="#quests">View Projects</a><a class="cta" href="Aleessya_Resume.pdf" download>⬇ Download Resume</a><a class="cta" href="#contact">Hire Player</a></p>
+<p class="ctas"><a class="cta" href="#quests">View Projects</a><a class="cta" href="resume.pdf" download>⬇ Download Resume</a><a class="cta" href="#contact">Hire Player</a></p>
 </div>
 </header>
 
@@ -209,7 +218,7 @@ nav a,button{border-radius:12px}
 <div class="who"><div class="pfp" data-pfp><svg viewBox='0 0 16 16' shape-rendering='crispEdges' role='img' aria-label='Profile picture placeholder'><rect class='pf' x='5' y='2' width='6' height='6'/><rect class='pf' x='3' y='9' width='10' height='6'/></svg></div><p>Looking for a games-industry internship or junior role. Let's team up!</p></div>
 <div class="grid">
 <a class="card ct" href="mailto:aleessyaalmaz@gmail.com"><small class="org">Email</small><b>aleessyaalmaz@gmail.com</b></a>
-<a class="card ct" href="tel:+60168012605"><small class="org">Phone</small><b>+60168012605</b></a>
+<a class="card ct" href="tel:+60168012605"><small class="org">Phone</small><b>0168012605</b></a>
 <a class="card ct" href="https://linkedin.com/in/aleessya-almaz-r-88826a1aa/" target="_blank" rel="noopener"><small class="org">LinkedIn</small><b>linkedin.com/in/aleessya-almaz-r-88826a1aa</b></a>
 <div class="card ct"><small class="org">Location</small><b>Ampang, Selangor</b></div>
 </div>
