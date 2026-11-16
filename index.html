@@ -237,12 +237,13 @@ h1.name{font-size:clamp(1.05rem,3.4vw,1.8rem)}
 <span class="tag">Unity 6</span><span class="tag">C#</span><span class="tag">Narrative</span></div>
 <div class="pfoot"><span>Web</span><span>🛠️ Remaking game</span></div>
 </article>
-<article class="pcard" data-cat="other">
-<div class="gallery" data-project="p1"></div>
-<div class="pbody"><span class="badge">Sample</span><h3>Sample Project One</h3>
-<p>Short description of what this project is, what you built, and what your role was. (Dummy text, replace me.)</p>
-<span class="tag">Tool A</span><span class="tag">Tool B</span><span class="tag">Teamwork</span></div>
-<div class="pfoot"><span>Web</span><span>📌 Add links</span></div>
+<article class="pcard" data-cat="other" data-stack="Apache, MySQL, XAMPP">
+<div class="gallery" data-project="richie"></div>
+<div class="pbody"><span class="badge">Web Application</span><h3>Richiamo Website Online Portal</h3>
+<p>An online portal where members can browse the menu, place orders and pay through a built-in transaction system, from checkout and payment to a printable receipt. It also has a member profile page and an admin side for managing the portal.</p>
+<p>Built with PHP and MySQL on an XAMPP (Apache) stack, with HTML and CSS for the front end. It was hosted online, but the hosting has since expired.</p>
+<span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Apache</span><span class="tag">XAMPP</span><span class="tag">Transaction System</span></div>
+<div class="pfoot"><span>Web</span><span>🌐 Hosting expired</span></div>
 </article>
 <article class="pcard" data-cat="other">
 <div class="gallery" data-project="p2"></div>
@@ -283,7 +284,7 @@ r.dataset.theme=dark?'light':'dark'};
 var PROFILE_IMG='profile.jpg'; // photo file in the same folder as index.html; the controller shows if it is missing
 var GALLERY={
 lucia:[{src:'Lucia_FYP/Lucia_Main_Menu.png',cap:'Menu Scene',desc:'The main menu, where the player begins their journey into the dream world of LUCIA.'},{src:'Lucia_FYP/Lucia_Gameplay.png',cap:'Gameplay Scene',desc:'Exploring the 2D world as the story unfolds and the player interacts with characters and objects.'},{src:'Lucia_FYP/Lucia_Fight_Scene.png',cap:'Lucia Fight Scene',desc:'A battle scene where Lucia faces an enemy in the game combat system.'},{src:'Lucia_FYP/Lucia_Room_Scene.png',cap:'Room Scene',desc:'A room environment where parts of the story and dialogue take place.'},{src:'Lucia_FYP/Lucia_Quiz_Screen.png',cap:'Quiz Screen',desc:'The in-game quiz screen, where the player answers questions as part of the experience.'},{src:'Lucia_FYP/Lucia_Scoreboard_DreamLo.png',cap:'Scoreboard Screen',desc:'The scoreboard powered by DreamLo, showing player scores on an online leaderboard.'}],
-p1:[{src:'images/project1-1.png',cap:'Project 1 screenshot'},{src:'images/project1-2.png',cap:'Project 1 result'}],
+richie:[{src:'Richie_Website/Richie_Home_Page.jpg',cap:'Home Page',desc:'The landing page of the portal, welcoming visitors to Richiamo.'},{src:'Richie_Website/Richie_Main_Page.jpg',cap:'Main Page',desc:'The main page, where visitors find their way around the portal.'},{src:'Richie_Website/Richie_Menu.png',cap:'Menu',desc:'The menu page showing the items available to order.'},{src:'Richie_Website/Richie_Member_Profile.png',cap:'Member Profile',desc:'The member profile page, where registered members view and manage their account.'},{src:'Richie_Website/Richie_Order_Page.png',cap:'Order Page',desc:'The order page, where customers pick items and build their order.'},{src:'Richie_Website/Richie_Checkout_Page.png',cap:'Checkout Page',desc:'The checkout page, where the order is reviewed before payment.'},{src:'Richie_Website/Richie_Payment_Page.png',cap:'Payment Page',desc:'The payment page, part of the transaction system that completes the purchase.'},{src:'Richie_Website/Richie_Receipt_Page.png',cap:'Receipt Page',desc:'The receipt shown after a successful transaction.'},{src:'Richie_Website/Richie_Print_Receipt_Page.png',cap:'Print Receipt Page',desc:'A print-friendly version of the receipt.'},{src:'Richie_Website/Richie_Admin.png',cap:'Admin Page',desc:'The admin page, used to manage the portal.'}],
 p2:[{src:'images/project2-1.png',cap:'Project 2 screenshot'},{src:'images/project2-2.png',cap:'Project 2 result'}]
 };
 function ph(t,n){var s='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360"><rect width="640" height="360" fill="#e6defa"/><rect x="12" y="12" width="616" height="336" fill="none" stroke="#2a2347" stroke-width="6" stroke-dasharray="14 8"/><text x="320" y="160" text-anchor="middle" font-family="monospace" font-size="28" fill="#2a2347">PICTURE '+n+' (PLACEHOLDER)</text><text x="320" y="205" text-anchor="middle" font-family="monospace" font-size="20" fill="#6b6490">'+t+'</text><text x="320" y="245" text-anchor="middle" font-family="monospace" font-size="16" fill="#6b6490">Add your own image here later</text></svg>';return 'data:image/svg+xml,'+encodeURIComponent(s)}
@@ -305,7 +306,7 @@ var d=gid('lbd');d.innerHTML='';if(c)c.querySelectorAll('.pbody p').forEach(func
 var g=gid('lbg');g.innerHTML='';if(c)c.querySelectorAll('.tag').forEach(function(t){add(g,'span',t.textContent,'tag')});
 var m=gid('lbm');m.innerHTML='';
 var f=c?c.querySelectorAll('.pfoot span'):[];
-[['Platforms',f[0]&&f[0].textContent],['Engine',c&&c.dataset.engine]].forEach(function(r){if(r[1]){add(m,'dt',r[0]);add(m,'dd',r[1])}});
+[['Platforms',f[0]&&f[0].textContent],['Engine',c&&c.dataset.engine],['Stack',c&&c.dataset.stack]].forEach(function(r){if(r[1]){add(m,'dt',r[0]);add(m,'dd',r[1])}});
 var a=gid('lba');a.innerHTML='';if(f[1])add(a,'div',f[1].textContent,'cta lbstatus')}
 function openLb(l,i,card){cur=l;ci=i;var t=gid('lbt');t.innerHTML='';
 l.forEach(function(it,k){var im=new Image();setSrc(im,it,k+1);im.alt=it.cap;im.onclick=function(){ci=k;show()};t.appendChild(im)});
