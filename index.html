@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Aleessya Almaz binti Razali — Player One Portfolio</title>
+<title>Aleessya Almaz binti Razali Portfolio</title>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#efe9ff;--panel:#ffffff;--ink:#2a2347;--muted:#6b6490;--accent:#7c5cff;--accent2:#e0507a;--line:#2a2347;--xp:#ffc857;
@@ -163,6 +163,7 @@ h1.name{font-size:clamp(1.05rem,3.4vw,1.8rem)}
 .lbstatus{display:block;text-align:center;background:var(--xp);color:#2a2347;border-color:var(--xp)}
 #lbx{position:absolute;top:12px;right:12px;z-index:3;border-radius:999px;padding:8px 11px}
 @media (max-width:760px){.lbm{grid-template-columns:1fr;overflow-y:auto}.lbr{border-left:0;border-top:1px solid color-mix(in srgb,var(--ink) 15%,transparent)}}
+#lb,.lbm,.lbr,#lbt{overscroll-behavior:contain}
 </style>
 </head>
 <body>
@@ -245,12 +246,13 @@ h1.name{font-size:clamp(1.05rem,3.4vw,1.8rem)}
 <span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Apache</span><span class="tag">XAMPP</span><span class="tag">Transaction System</span></div>
 <div class="pfoot"><span>Web</span><span>🌐 Hosting expired</span></div>
 </article>
-<article class="pcard" data-cat="other">
-<div class="gallery" data-project="p2"></div>
-<div class="pbody"><span class="badge">Sample</span><h3>Sample Project Two</h3>
-<p>Another placeholder: describe the problem, your solution and the result. (Dummy text, replace me.)</p>
-<span class="tag">Language</span><span class="tag">Framework</span><span class="tag">Solo</span></div>
-<div class="pfoot"><span>Desktop</span><span>📌 Add links</span></div>
+<article class="pcard" data-cat="other" data-stack="Python, Flask">
+<div class="gallery" data-project="mfa"></div>
+<div class="pbody"><span class="badge">Computer Security Project</span><h3>AI/ML-Enhanced MFA Secure Portal</h3>
+<p>A multi-factor authentication login portal that uses machine learning to assess the risk of each login. It checks the username, password and device ID, shows a risk level and score, adds a CAPTCHA step after failed attempts, and temporarily blocks suspicious logins.</p>
+<p>Built with Python and Flask, with an HTML and CSS front end, and run locally during development.</p>
+<span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Machine Learning</span><span class="tag">MFA</span><span class="tag">CAPTCHA</span><span class="tag">Risk Scoring</span><span class="tag">HTML</span><span class="tag">CSS</span></div>
+<div class="pfoot"><span>Web</span><span>🔒 Runs locally</span></div>
 </article>
 </div>
 </section>
@@ -285,7 +287,7 @@ var PROFILE_IMG='profile.jpg'; // photo file in the same folder as index.html; t
 var GALLERY={
 lucia:[{src:'Lucia_FYP/Lucia_Main_Menu.png',cap:'Menu Scene',desc:'The main menu, where the player begins their journey into the dream world of LUCIA.'},{src:'Lucia_FYP/Lucia_Gameplay.png',cap:'Gameplay Scene',desc:'Exploring the 2D world as the story unfolds and the player interacts with characters and objects.'},{src:'Lucia_FYP/Lucia_Fight_Scene.png',cap:'Lucia Fight Scene',desc:'A battle scene where Lucia faces an enemy in the game combat system.'},{src:'Lucia_FYP/Lucia_Room_Scene.png',cap:'Room Scene',desc:'A room environment where parts of the story and dialogue take place.'},{src:'Lucia_FYP/Lucia_Quiz_Screen.png',cap:'Quiz Screen',desc:'The in-game quiz screen, where the player answers questions as part of the experience.'},{src:'Lucia_FYP/Lucia_Scoreboard_DreamLo.png',cap:'Scoreboard Screen',desc:'The scoreboard powered by DreamLo, showing player scores on an online leaderboard.'}],
 richie:[{src:'Richie_Website/Richie_Home_Page.jpg',cap:'Home Page',desc:'The landing page of the portal, welcoming visitors to Richiamo.'},{src:'Richie_Website/Richie_Main_Page.jpg',cap:'Main Page',desc:'The main page, where visitors find their way around the portal.'},{src:'Richie_Website/Richie_Menu.png',cap:'Menu',desc:'The menu page showing the items available to order.'},{src:'Richie_Website/Richie_Member_Profile.png',cap:'Member Profile',desc:'The member profile page, where registered members view and manage their account.'},{src:'Richie_Website/Richie_Order_Page.png',cap:'Order Page',desc:'The order page, where customers pick items and build their order.'},{src:'Richie_Website/Richie_Checkout_Page.png',cap:'Checkout Page',desc:'The checkout page, where the order is reviewed before payment.'},{src:'Richie_Website/Richie_Payment_Page.png',cap:'Payment Page',desc:'The payment page, part of the transaction system that completes the purchase.'},{src:'Richie_Website/Richie_Receipt_Page.png',cap:'Receipt Page',desc:'The receipt shown after a successful transaction.'},{src:'Richie_Website/Richie_Print_Receipt_Page.png',cap:'Print Receipt Page',desc:'A print-friendly version of the receipt.'},{src:'Richie_Website/Richie_Admin.png',cap:'Admin Page',desc:'The admin page, used to manage the portal.'}],
-p2:[{src:'images/project2-1.png',cap:'Project 2 screenshot'},{src:'images/project2-2.png',cap:'Project 2 result'}]
+mfa:[{src:'CS_Project/MFA_01_Login_Page.png',cap:'Login Page',desc:'The Secure Portal login page, with username, password and device ID fields.'},{src:'CS_Project/MFA_02_Login_Success_Student1.png',cap:'Login Successful (student1)',desc:'A successful login authenticated with MFA, with the risk level during login shown as low.'},{src:'CS_Project/MFA_03_Login_Success_Student2.png',cap:'Login Successful (student2)',desc:'The same successful MFA login for a second test user, again with a low risk level.'},{src:'CS_Project/MFA_04_Invalid_Password_Medium_Risk.png',cap:'Invalid Password, Medium Risk',desc:'A failed login that shows the risk level (medium) and risk score (4) given to the attempt.'},{src:'CS_Project/MFA_05_Medium_Risk_With_Captcha.png',cap:'Medium Risk with CAPTCHA',desc:'After a failed attempt (medium risk, score 3), the portal shows a CAPTCHA security verification step.'},{src:'CS_Project/MFA_06_Captcha_Verification.png',cap:'CAPTCHA Verification',desc:'A close-up of the CAPTCHA, where the user types the characters shown before signing in.'},{src:'CS_Project/MFA_07_ML_Assessment_Low_Risk.png',cap:'ML Risk Assessment',desc:'A failed login with the machine learning risk assessment shown on screen (risk: low).'},{src:'CS_Project/MFA_08_Access_Temporarily_Blocked.png',cap:'Access Temporarily Blocked',desc:'A login attempt flagged as suspicious is blocked, and the user must try again after 60 seconds.'},{src:'CS_Project/MFA_09_Server_Log.png',cap:'Server Log',desc:'The Flask backend running locally and handling the portal requests.'}]
 };
 function ph(t,n){var s='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360"><rect width="640" height="360" fill="#e6defa"/><rect x="12" y="12" width="616" height="336" fill="none" stroke="#2a2347" stroke-width="6" stroke-dasharray="14 8"/><text x="320" y="160" text-anchor="middle" font-family="monospace" font-size="28" fill="#2a2347">PICTURE '+n+' (PLACEHOLDER)</text><text x="320" y="205" text-anchor="middle" font-family="monospace" font-size="20" fill="#6b6490">'+t+'</text><text x="320" y="245" text-anchor="middle" font-family="monospace" font-size="16" fill="#6b6490">Add your own image here later</text></svg>';return 'data:image/svg+xml,'+encodeURIComponent(s)}
 if(PROFILE_IMG){var t=new Image();t.onload=function(){document.getElementById('avatar').innerHTML='<img src="'+PROFILE_IMG+'" alt="Aleessya Almaz binti Razali">';document.querySelectorAll('[data-pfp]').forEach(function(p){p.innerHTML='<img src="'+PROFILE_IMG+'" alt="Aleessya Almaz binti Razali">'})};t.src=PROFILE_IMG}
@@ -310,13 +312,15 @@ var f=c?c.querySelectorAll('.pfoot span'):[];
 var a=gid('lba');a.innerHTML='';if(f[1])add(a,'div',f[1].textContent,'cta lbstatus')}
 function openLb(l,i,card){cur=l;ci=i;var t=gid('lbt');t.innerHTML='';
 l.forEach(function(it,k){var im=new Image();setSrc(im,it,k+1);im.alt=it.cap;im.onclick=function(){ci=k;show()};t.appendChild(im)});
-fillInfo(card);show();lb.hidden=false}
+fillInfo(card);show();lb.hidden=false;setLock(true)}
+function setLock(on){var r=document.documentElement,b=document.body;if(on){var w=window.innerWidth-r.clientWidth;r.style.overflow='hidden';b.style.overflow='hidden';if(w>0)b.style.paddingRight=w+'px'}else{r.style.overflow='';b.style.overflow='';b.style.paddingRight=''}}
+function closeLb(){lb.hidden=true;setLock(false)}
 function step(d){ci=(ci+d+cur.length)%cur.length;show()}
 gid('lbp').onclick=function(){step(-1)};
 gid('lbn').onclick=function(){step(1)};
-gid('lbx').onclick=function(){lb.hidden=true};
-lb.onclick=function(e){if(e.target===lb)lb.hidden=true};
-document.onkeydown=function(e){if(lb.hidden)return;if(e.key==='Escape')lb.hidden=true;if(e.key==='ArrowLeft')step(-1);if(e.key==='ArrowRight')step(1)};
+gid('lbx').onclick=closeLb;
+lb.onclick=function(e){if(e.target===lb)closeLb()};
+document.onkeydown=function(e){if(lb.hidden)return;if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft')step(-1);if(e.key==='ArrowRight')step(1)};
 document.querySelectorAll('.gallery').forEach(function(g){
 var list=GALLERY[g.dataset.project]||[];var tr=document.createElement('div');tr.className='track';
 list.forEach(function(it,i){var f=document.createElement('figure'),im=new Image();im.onerror=function(){im.onerror=null;im.src=ph(it.cap,i+1)};im.src=it.src||ph(it.cap,i+1);im.alt=it.cap;im.onclick=function(){openLb(list,i,g.closest('.pcard'))};var c=document.createElement('figcaption');var cb=document.createElement('b');cb.textContent=(i+1)+'/'+list.length+' · '+it.cap;c.appendChild(cb);if(it.desc){var dd=document.createElement('div');dd.textContent=it.desc;c.appendChild(dd)}f.appendChild(im);f.appendChild(c);tr.appendChild(f)});
