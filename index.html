@@ -289,7 +289,7 @@ h1.name{font-size:clamp(1.05rem,3.4vw,1.8rem)}
 <section class="box" id="quests">
 <h2>★ QUEST LOG: PROJECTS</h2>
 <p>Pick a category, then click a project to see all its pictures and details.</p>
-<div class="filters"><button class="chip on" data-f="all">All <span>7</span></button><button class="chip" data-f="game">Game <span>2</span></button><button class="chip" data-f="other">Other <span>5</span></button></div>
+<div class="filters"><button class="chip on" data-f="all">All <span>8</span></button><button class="chip" data-f="game">Game <span>3</span></button><button class="chip" data-f="other">Other <span>5</span></button></div>
 <div class="pgrid">
 <article class="pcard top" data-cat="game" data-engine="Unity 6">
 <div class="gallery" data-project="lucia"></div>
@@ -306,6 +306,14 @@ h1.name{font-size:clamp(1.05rem,3.4vw,1.8rem)}
 <p>Built in Unity 6 for mobile, players move Pingu with a joystick on the left of the screen and tap the button on the right to interact with objects, completing each level objective to move on. It includes a main menu and levels set in the Arctic, ocean and beach. Made with Unity 6, C# and Aseprite.</p>
 <span class="tag">Unity 6</span><span class="tag">C#</span><span class="tag">Aseprite</span><span class="tag">Educational</span><span class="tag">Mobile Game</span><span class="tag">Top-Down</span><span class="tag">Environment</span></div>
 <div class="pfoot"><span>Mobile</span><span>🛠️ Remaking</span></div>
+</article>
+<article class="pcard" data-cat="game" data-stack="Code::Blocks, MSYS2, OpenGL (GLUT)">
+<div class="gallery" data-project="spacecraft"></div>
+<div class="pbody"><span class="badge">Computer Graphics Project</span><h3>SpaceCraft: Spacecraft Shooting Game</h3>
+<p>A 2D space shooter built for the Computer Graphics course. Fly a spacecraft, shoot descending enemy ships and avoid obstacles to score points, drawn entirely with OpenGL primitives.</p>
+<p>Written in C++ with OpenGL and GLUT, developed in the Code::Blocks IDE with an MSYS2 toolchain. Players start from a welcome and tutorial screen, move with the arrow keys and shoot with the spacebar. Each enemy shot adds 10 points, obstacles block movement, and colliding with an enemy ends the game, with Enter to restart. Done as a team of four.</p>
+<span class="tag">C++</span><span class="tag">OpenGL</span><span class="tag">GLUT</span><span class="tag">Computer Graphics</span><span class="tag">Code::Blocks</span><span class="tag">MSYS2</span><span class="tag">2D Game</span></div>
+<div class="pfoot"><span>PC</span><span>🎓 Course project</span></div>
 </article>
 <article class="pcard" data-cat="other" data-stack="Apache, MySQL, XAMPP">
 <div class="gallery" data-project="richie"></div>
@@ -402,6 +410,11 @@ cgdd:[
 {src:'CGDD_AR/AR_03_Camera.png',cap:'Scan Images',desc:'The organ images (liver, heart, brain, lungs and kidney) that the AR camera scans to bring each 3D model to life.'},
 {src:'CGDD_AR/AR_04_Lungs_Description.png',cap:'Lungs Description',desc:'After scanning, the lungs appear as a 3D model with their location, function, main parts and fun facts.'},
 {src:'CGDD_AR/AR_05_Heart_Description.png',cap:'Heart Description',desc:'The heart as a 3D model beside key information about its location, function, main parts and fun facts.'}
+],
+spacecraft:[
+{src:'SpaceCraft_Project/SpaceCraft_Gameplay.mp4',cap:'Gameplay',desc:'Gameplay recording: the spacecraft moves and shoots enemy ships while avoiding obstacles, with the score shown in the corner.'},
+{src:'SpaceCraft_Project/SpaceCraft_UI.png',cap:'Game UI',desc:'The in-game screen, with the player spacecraft at the bottom, enemy ships coming down and obstacle blocks that stop movement.'},
+{src:'SpaceCraft_Project/SpaceCraft_Tutorial.png',cap:'Tutorial Screen',desc:'The welcome screen, which explains the controls: spacebar to shoot, arrow keys to move, and Enter to start.'}
 ]
 };
 function ph(t,n){var s='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360"><rect width="640" height="360" fill="#e6defa"/><rect x="12" y="12" width="616" height="336" fill="none" stroke="#2a2347" stroke-width="6" stroke-dasharray="14 8"/><text x="320" y="160" text-anchor="middle" font-family="monospace" font-size="28" fill="#2a2347">PICTURE '+n+' (PLACEHOLDER)</text><text x="320" y="205" text-anchor="middle" font-family="monospace" font-size="20" fill="#6b6490">'+t+'</text><text x="320" y="245" text-anchor="middle" font-family="monospace" font-size="16" fill="#6b6490">Add your own image here later</text></svg>';return 'data:image/svg+xml,'+encodeURIComponent(s)}
