@@ -192,6 +192,23 @@ h1.name{font-size:clamp(1.05rem,3.4vw,1.8rem)}
 #lb .stage video[hidden],#lb .stage img[hidden]{display:none}
 #lb #lbt video{width:84px;height:54px;flex:none;object-fit:cover;border:2px solid transparent;border-radius:10px;cursor:pointer;opacity:.7;background:#0b0a1a}
 #lb #lbt video.on{border-color:var(--xp);opacity:1}
+
+/* Fixed-size project cards: cover picture, short text, full details only in the popup */
+#quests .pgrid{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
+.pcard{height:500px;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.pcard:hover,.pcard:focus-visible{transform:translateY(-4px);box-shadow:0 14px 30px rgba(0,0,0,.2);outline:none}
+.pcard .gallery{position:relative;height:210px;flex:none;margin:0;background:#0b0a1a;border-bottom:3px solid var(--line)}
+.pcard .gallery img,.pcard .gallery video{width:100%;height:100%;aspect-ratio:auto;object-fit:contain;display:block;cursor:pointer;background:#0b0a1a}
+.pcount{position:absolute;right:10px;bottom:10px;background:rgba(0,0,0,.65);color:#fff;font-size:.72rem;padding:3px 10px;border-radius:999px}
+.pcard .pbody{display:flex;flex-direction:column;gap:8px;overflow:hidden;min-height:0}
+.pcard .pbody .badge{align-self:flex-start}
+.pcard .pbody h3{margin:0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.pcard .pbody p{margin:0;font-size:.9rem;color:var(--muted)}
+.pcard .pbody p:first-of-type{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.pcard .pbody p:nth-of-type(n+2){display:none}
+.ptags{display:flex;gap:4px;flex-wrap:nowrap;overflow:hidden;margin-top:auto}
+.ptags .tag{white-space:nowrap;flex:none;margin:0}
+.ptags .more{flex:none;font-size:.8rem;font-weight:700;color:var(--muted);align-self:center;padding:0 4px}
 </style>
 </head>
 <body>
@@ -255,7 +272,7 @@ h1.name{font-size:clamp(1.05rem,3.4vw,1.8rem)}
 
 <section class="box" id="quests">
 <h2>★ QUEST LOG: PROJECTS</h2>
-<p>Pick a category, then tap any picture to enlarge it.</p>
+<p>Pick a category, then click a project to see all its pictures and details.</p>
 <div class="filters"><button class="chip on" data-f="all">All <span>5</span></button><button class="chip" data-f="game">Game <span>2</span></button><button class="chip" data-f="other">Other <span>3</span></button></div>
 <div class="pgrid">
 <article class="pcard top" data-cat="game" data-engine="Unity 6">
@@ -304,7 +321,6 @@ h1.name{font-size:clamp(1.05rem,3.4vw,1.8rem)}
 <section class="box" id="programs">
 <h2>★ PROGRAMS &amp; COMMUNITY INITIATIVES</h2>
 <div class="prog"><div class="pico">🛡️</div><div><span class="etag">CIVIC OUTREACH | UNIMAS</span><h4>SULAM: CYBEARS Awareness Talk</h4><p>Served on the registration and data management committee for a university-led cybersecurity outreach event at Kampung Tanjung Tuang. Managed participant check-ins, maintained attendee records, and conducted pre- and post-event survey evaluations to gather feedback and evaluate program impact.</p><span class="tag">Participant Registration</span><span class="tag">Pre/Post Surveys</span><span class="tag">Data Management</span><span class="tag">Cybersecurity Outreach</span></div></div>
-<div class="prog"><div class="pico">🤝</div><div><span class="etag">PLACEHOLDER</span><h4>Add Another Program</h4><p>📌 Add your next program, volunteering or leadership experience here. (Sample text, replace me.)</p><span class="tag">Skill A</span><span class="tag">Skill B</span></div></div>
 </section>
 
 <section class="box" id="contact">
@@ -341,11 +357,37 @@ var lb=document.createElement('div');lb.id='lb';lb.hidden=true;
 lb.innerHTML='<div class="lbm" role="dialog" aria-modal="true"><button id="lbx" aria-label="Close">✕</button><div class="lbl"><div class="stage"><button class="sn" id="lbp" aria-label="Previous">◀</button><img id="lbi" alt=""><video id="lbv" controls muted loop playsinline hidden></video><button class="sn" id="lbn" aria-label="Next">▶</button></div><div id="lbc"></div><div id="lbt"></div></div><div class="lbr"><span class="badge" id="lbb"></span><h3 id="lbh"></h3><div id="lbd"></div><div id="lbg"></div><dl id="lbm"></dl><div id="lba"></div></div></div>';
 document.body.appendChild(lb);
 var cur=[],ci=0;
+/* ---- media helpers (images, videos and GIF fallback) ---- */
 function isVid(p){return /\.(webm|mp4)$/i.test(p||'')}
-function mk(it,n,thumb){if(isVid(it.src)){var v=document.createElement('video');v.src=it.src+(thumb?'#t=0.1':'');v.muted=true;v.defaultMuted=true;v.loop=true;v.playsInline=true;v.setAttribute('playsinline','');v.setAttribute('aria-label',it.cap);if(thumb){v.preload='metadata'}else{v.autoplay=true;var p=v.play();if(p&&p.catch)p.catch(function(){})}return v}var im=new Image();setSrc(im,it,n);im.alt=it.cap;return im}
+/* For a video "X.webm" the page tries X.webm, then X.mp4, then X.gif (same name, same folder). */
+function cands(it){var s=it.src,b=s.replace(/\.[^.\/]+$/,''),e=s.slice(b.length+1).toLowerCase(),l=[s];['webm','mp4','gif'].forEach(function(x){if(x!==e)l.push(b+'.'+x)});return l}
+function tryPlay(v){var p=v.play();if(p&&p.catch)p.catch(function(){})}
 function gid(i){return document.getElementById(i)}
 function setSrc(img,it,n){img.onerror=function(){img.onerror=null;img.src=ph(it.cap,n)};img.src=it.src||ph(it.cap,n)}
-function show(){var it=cur[ci],v=isVid(it.src),li=gid('lbi'),lv=gid('lbv');li.hidden=v;lv.hidden=!v;if(v){if(lv.getAttribute('src')!==it.src)lv.src=it.src;lv.muted=true;var pp=lv.play();if(pp&&pp.catch)pp.catch(function(){})}else{lv.pause();setSrc(li,it,ci+1)}var c=gid('lbc');c.innerHTML='';var b=document.createElement('b');b.textContent=(ci+1)+'/'+cur.length+' · '+it.cap;c.appendChild(b);if(it.desc){var d=document.createElement('div');d.textContent=it.desc;c.appendChild(d)}
+function mk(it,n,thumb){
+if(!isVid(it.src)){var im=new Image();setSrc(im,it,n);im.alt=it.cap;return im}
+var list=cands(it),k=0,v=document.createElement('video');
+v.muted=true;v.defaultMuted=true;v.loop=true;v.playsInline=true;v.setAttribute('playsinline','');v.setAttribute('aria-label',it.cap);
+v.preload=thumb?'metadata':'auto';if(!thumb)v.autoplay=true;
+v.addEventListener('error',function(){k++;
+if(k<list.length&&isVid(list[k])){v.src=list[k]+(thumb?'#t=0.1':'');v.load();if(!thumb)tryPlay(v);return}
+var im=new Image();im.alt=it.cap;im.className=v.className;im.onclick=v.onclick;
+im.onerror=function(){im.onerror=null;im.src=ph(it.cap+' (video not found)',n)};
+im.src=k<list.length?list[k]:ph(it.cap+' (video not found)',n);
+v.replaceWith(im)});
+v.src=list[0]+(thumb?'#t=0.1':'');
+if(!thumb)tryPlay(v);
+return v}
+function modalVideo(it){var lv=gid('lbv'),li=gid('lbi'),list=cands(it),k=0;
+lv.onerror=function(){k++;
+if(k<list.length&&isVid(list[k])){lv.src=list[k];lv.load();tryPlay(lv);return}
+lv.onerror=null;lv.pause();lv.hidden=true;li.hidden=false;
+li.onerror=function(){li.onerror=null;li.src=ph(it.cap+' (video not found)',ci+1)};
+li.src=k<list.length?list[k]:ph(it.cap+' (video not found)',ci+1)};
+lv.muted=true;lv.src=list[0];lv.load();tryPlay(lv)}
+function show(){var it=cur[ci],v=isVid(it.src),li=gid('lbi'),lv=gid('lbv');li.hidden=v;lv.hidden=!v;
+if(v){modalVideo(it)}else{lv.onerror=null;lv.pause();setSrc(li,it,ci+1)}
+var c=gid('lbc');c.innerHTML='';var b=document.createElement('b');b.textContent=(ci+1)+'/'+cur.length+' · '+it.cap;c.appendChild(b);if(it.desc){var d=document.createElement('div');d.textContent=it.desc;c.appendChild(d)}
 document.querySelectorAll('#lbt img,#lbt video').forEach(function(t,k){t.classList.toggle('on',k===ci)})}
 function add(parent,tag,text,cls){var e=document.createElement(tag);e.textContent=text;if(cls)e.className=cls;parent.appendChild(e);return e}
 function fillInfo(c){
@@ -370,12 +412,17 @@ gid('lbx').onclick=closeLb;
 lb.onclick=function(e){if(e.target===lb)closeLb()};
 document.onkeydown=function(e){if(lb.hidden)return;if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft')step(-1);if(e.key==='ArrowRight')step(1)};
 document.querySelectorAll('.gallery').forEach(function(g){
-var list=GALLERY[g.dataset.project]||[];var tr=document.createElement('div');tr.className='track';
-list.forEach(function(it,i){var f=document.createElement('figure'),im=mk(it,i+1);im.onclick=function(){openLb(list,i,g.closest('.pcard'))};var c=document.createElement('figcaption');var cb=document.createElement('b');cb.textContent=(i+1)+'/'+list.length+' · '+it.cap;c.appendChild(cb);if(it.desc){var dd=document.createElement('div');dd.textContent=it.desc;c.appendChild(dd)}f.appendChild(im);f.appendChild(c);tr.appendChild(f)});
-g.appendChild(tr);
-['prev','next'].forEach(function(d){var b=document.createElement('button');b.className='gnav g'+d;b.textContent=d==='prev'?'◀':'▶';b.setAttribute('aria-label',d);b.onclick=function(){tr.scrollBy({left:(d==='prev'?-1:1)*tr.clientWidth,behavior:'smooth'})};g.appendChild(b)})});
+var list=GALLERY[g.dataset.project]||[];if(!list.length)return;
+g.appendChild(mk(list[0],1));
+var n=document.createElement('span');n.className='pcount';n.textContent='🖼 '+list.length+(list.length===1?' picture':' pictures');g.appendChild(n)});
 document.querySelectorAll('.chip').forEach(function(c){c.onclick=function(){document.querySelectorAll('.chip').forEach(function(x){x.classList.remove('on')});c.classList.add('on');document.querySelectorAll('.pcard').forEach(function(p){p.hidden=!(c.dataset.f==='all'||p.dataset.cat===c.dataset.f)})}});
-document.querySelectorAll('.pcard').forEach(function(c){var b=c.querySelector('.pbody'),g=c.querySelector('.gallery');if(b&&g){b.style.cursor='pointer';b.onclick=function(){openLb(GALLERY[g.dataset.project]||[],0,c)}}});
+document.querySelectorAll('.pcard').forEach(function(c){
+var b=c.querySelector('.pbody'),g=c.querySelector('.gallery');if(!g||!b)return;
+var tags=[].slice.call(b.querySelectorAll(':scope > .tag'));
+if(tags.length){var w=document.createElement('div');w.className='ptags';tags.forEach(function(t,i){w.appendChild(t);if(i>=3)t.style.display='none'});if(tags.length>3){var mo=document.createElement('span');mo.className='more';mo.textContent='+'+(tags.length-3);w.appendChild(mo)}b.appendChild(w)}
+c.tabIndex=0;c.setAttribute('role','button');
+var go=function(){openLb(GALLERY[g.dataset.project]||[],0,c)};
+c.onclick=go;c.onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}}});
 </script>
 </body>
 </html>
