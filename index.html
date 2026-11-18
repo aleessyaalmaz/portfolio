@@ -289,7 +289,7 @@ h1.name{font-size:clamp(1.05rem,3.4vw,1.8rem)}
 <section class="box" id="quests">
 <h2>★ QUEST LOG: PROJECTS</h2>
 <p>Pick a category, then click a project to see all its pictures and details.</p>
-<div class="filters"><button class="chip on" data-f="all">All <span>6</span></button><button class="chip" data-f="game">Game <span>2</span></button><button class="chip" data-f="other">Other <span>4</span></button></div>
+<div class="filters"><button class="chip on" data-f="all">All <span>7</span></button><button class="chip" data-f="game">Game <span>2</span></button><button class="chip" data-f="other">Other <span>5</span></button></div>
 <div class="pgrid">
 <article class="pcard top" data-cat="game" data-engine="Unity 6">
 <div class="gallery" data-project="lucia"></div>
@@ -339,6 +339,14 @@ h1.name{font-size:clamp(1.05rem,3.4vw,1.8rem)}
 <span class="tag">Figma</span><span class="tag">UI/UX</span><span class="tag">User Research</span><span class="tag">Personas</span><span class="tag">Wireframing</span><span class="tag">Prototyping</span><span class="tag">Usability Testing</span></div>
 <div class="pfoot"><span>Mobile</span><span>🎨 Design prototype</span></div>
 </article>
+<article class="pcard" data-cat="other" data-engine="Unity" data-stack="Unity, Vuforia">
+<div class="gallery" data-project="cgdd"></div>
+<div class="pbody"><span class="badge">AR Application (CGDD)</span><h3>CGDD AR Application: World of Pathology &amp; Anatomy</h3>
+<p>An educational augmented reality app that lets visitors scan an organ image with their phone camera and explore it as a 3D model with key facts, inspired by our visit to the Pathology &amp; Anatomy Museum at the Faculty of Medicine and Health Sciences, UNIMAS.</p>
+<p>Built in Unity with Vuforia image recognition and tracking. After scanning, the app loads an information screen for the organ (such as the lungs or heart) showing its location, function, main parts and fun facts beside the 3D model. I worked on the UI/UX design with a teammate, including the main menu, app description, credits, tutorial, camera and settings screens, in a team of five.</p>
+<span class="tag">Unity</span><span class="tag">Vuforia</span><span class="tag">Augmented Reality</span><span class="tag">UI/UX</span><span class="tag">Educational</span><span class="tag">Mobile App</span></div>
+<div class="pfoot"><span>Mobile (AR)</span><span>🏫 Class project</span></div>
+</article>
 </div>
 </section>
 
@@ -387,6 +395,13 @@ eshop:[
 {src:'UIUX_Project/EShop_10_Rate_Product.png',cap:'Rate Product',desc:'The star rating and review screen shown after a parcel is delivered.'},
 {src:'UIUX_Project/EShop_11_Customer_Service.png',cap:'Contact Customer Service',desc:'The help centre with FAQs and 24/7 chat or call support.'},
 {src:'UIUX_Project/EShop_12_Account_Page.png',cap:'Account Page',desc:'My Purchases, account settings, help centre, chat with assistant and scam safety tips.'}
+],
+cgdd:[
+{src:'CGDD_AR/AR_01_Main_Menu.png',cap:'Main Menu',desc:'The app\'s main menu with Play, Description, Settings and Exit buttons under the World of Pathology & Anatomy logo.'},
+{src:'CGDD_AR/AR_02_Tutorial.png',cap:'Tutorial',desc:'A three-step guide: tap Start, scan the organ image with the AR camera, then explore the 3D model and its information.'},
+{src:'CGDD_AR/AR_03_Camera.png',cap:'Scan Images',desc:'The organ images (liver, heart, brain, lungs and kidney) that the AR camera scans to bring each 3D model to life.'},
+{src:'CGDD_AR/AR_04_Lungs_Description.png',cap:'Lungs Description',desc:'After scanning, the lungs appear as a 3D model with their location, function, main parts and fun facts.'},
+{src:'CGDD_AR/AR_05_Heart_Description.png',cap:'Heart Description',desc:'The heart as a 3D model beside key information about its location, function, main parts and fun facts.'}
 ]
 };
 function ph(t,n){var s='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360"><rect width="640" height="360" fill="#e6defa"/><rect x="12" y="12" width="616" height="336" fill="none" stroke="#2a2347" stroke-width="6" stroke-dasharray="14 8"/><text x="320" y="160" text-anchor="middle" font-family="monospace" font-size="28" fill="#2a2347">PICTURE '+n+' (PLACEHOLDER)</text><text x="320" y="205" text-anchor="middle" font-family="monospace" font-size="20" fill="#6b6490">'+t+'</text><text x="320" y="245" text-anchor="middle" font-family="monospace" font-size="16" fill="#6b6490">Add your own image here later</text></svg>';return 'data:image/svg+xml,'+encodeURIComponent(s)}
