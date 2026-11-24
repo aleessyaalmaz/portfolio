@@ -296,7 +296,10 @@ nav a,nav button{flex:none;white-space:nowrap}
 .pg.stop .hf{display:block}
 
 /* Contact: wider boxes, and the email always shows on one line */
-#contact .grid{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+#contact{padding-inline:max(18px,calc((100% - 1200px)/2))}
+#contact .grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:900px){#contact .grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){#contact .grid{grid-template-columns:1fr}}
 #contact a[href^="mailto"]{container-type:inline-size}
 #contact a[href^="mailto"] b{white-space:nowrap;word-break:normal;overflow-wrap:normal;font-size:min(1rem,7cqw)}
 </style>
